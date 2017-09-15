@@ -1,0 +1,69 @@
+.home{
+  margin-top: -50px;
+  /*color: white;*/
+}
+
+.background{
+  background-color: bisque;
+}
+
+.my-title, .my-links{
+  position: absolute;
+  width: 100%;
+  text-align: center;
+}
+
+.my-title{
+  top: 10%;
+}
+
+.my-title h4, .my-title h3{
+  letter-spacing: 2px;
+}
+
+.my-links{
+  bottom: 20%;
+} 
+
+.link-style{
+  font-size: 18px;
+  padding-bottom: 7px;
+  display: inline-block;
+  height: 32px;
+  text-decoration: none;
+  position: relative;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+
+.link-style:hover{
+  color: black;
+}
+
+.link-style:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  bottom: 0;
+  left: 0;
+  background-color: black;
+  visibility: hidden;
+  -webkit-transition: all 0.3s ease-in-out 0s;
+  -moz-transition: all 0.3s ease-in-out 0s;
+  -o-transition: all 0.3s ease-in-out 0s;
+  transition: all 0.3s ease-in-out 0s;
+  -webkit-transform: scaleX(0);
+  -moz-transform: scaleX(0);
+  -o-transform: scaleX(0);
+  transform: scaleX(0);
+}
+
+.link-style:hover:before {
+  visibility: visible;
+  -webkit-transform: scaleX(1);
+  transform: scaleX(1);
+}
+
+
+

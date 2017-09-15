@@ -1,0 +1,24 @@
+FUTURE REFERENCE
+
+=============================================
+================ ERROR FIXED ================
+=============================================
+
+ERROR in ./src/client.js
+Module build failed: SyntaxError: Unexpected token (41:2)
+
+  39 | 
+  40 | const component = (
+> 41 |   <Router render={(props) =>
+     |   ^
+  42 |         <ReduxAsyncConnect {...props} helpers={{client}} filter={item => !item.deferred} />
+  43 |       } history={history}>
+  44 |     {getRoutes(store)}
+
+
+==> This error occurs bc file .babelrc is not in parent folder, also make sure  - npm install react-router -  is installed
+
+
+=============================================
+================ ERROR FIXED ================
+=============================================
