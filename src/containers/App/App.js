@@ -15,6 +15,7 @@ import { asyncConnect } from 'redux-async-connect';
 import '../../helpers/app.css';
 import '../../helpers/home.css';
 import '../../helpers/work.css';
+import '../../helpers/resume.css';
 
 @asyncConnect([{
   promise: ({store: {dispatch, getState}}) => {
