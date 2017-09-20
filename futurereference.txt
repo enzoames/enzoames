@@ -22,3 +22,7 @@ Module build failed: SyntaxError: Unexpected token (41:2)
 =============================================
 ================ ERROR FIXED ================
 =============================================
+
+TURN ON AND OFF DEV TOOLS IS IN karma.config.js file
+
+__DEVTOOLS__: true  // <-------- DISABLE redux-devtools HERE

@@ -16,26 +16,20 @@ export default class Home extends Component {
   }
 
   updateDimensions(){
-    console.log("\nupdateDimesions");
     var winWidth = window.innerWidth; //var winWidth = $(window).width();
     var winHeight = window.innerHeight; //var winHeight = $(window).height();
-    console.log("H W", winHeight, winWidth);
     this.setState({width: winWidth, height: winHeight-50});
-    console.log("\nsetstate complete in updateDimesions");    
   }
 
   componentDidMount() {
-    console.log("\nCOMPONENT DID MOUNT");
     window.addEventListener("resize", this.updateDimensions);
   }
 
   componentWillMount() {
-    console.log("\nCOMPONENT WILL MOUNT");
     this.updateDimensions;
   }
 
   componentWillUnmount() {
-    console.log("\nCOMPONENT WILL UNMOUNT");
     window.removeEventListener("resize", this.updateDimensions);
   }
 

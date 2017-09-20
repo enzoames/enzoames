@@ -16,6 +16,7 @@ import '../../helpers/app.css';
 import '../../helpers/home.css';
 import '../../helpers/work.css';
 import '../../helpers/resume.css';
+import '../../helpers/about.css';
 
 @asyncConnect([{
   promise: ({store: {dispatch, getState}}) => {

@@ -42,6 +42,7 @@ h3{
   text-align: left !important;
   padding-bottom: 7px;
   border-bottom: 1px solid;
+  cursor: pointer;
 }
 
 .content-text{
@@ -56,7 +57,7 @@ h3{
 
 .inner-content-title{
   font-size: 19px;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid #828282;
   display: inline-block;
   margin-bottom: 3px;
 }
@@ -73,6 +74,38 @@ h3{
   letter-spacing: 1px;
   font-size: 15px;
 }
+
+
+/*============================================*/
+/*============================================*/
+/*============== DROP DOWN CSS ===============*/
+/*============================================*/
+/*============================================*/
+
+/*.edu-trigger{
+  position: relative;
+  color: black;
+}
+
+.edu-trigger:hover{
+  position: relative;
+  color: red;
+}*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
