@@ -1,20 +1,44 @@
+/* ======================================== */
+/* ============= ERROR SCREEN ============= */
+/* ======================================== */
+
 /* Toogle the error screen showing up on dev screen */
 #webpack-hot-middleware-clientOverlay{
   display: none;
 }
 
-/* Importing Fonts */
+/* ================================= */
+/* ============= FONTS ============= */
+/* ================================= */
+
 @font-face {
   font-family: 'LANENAR';
   font-weight: normal;
   font-style: normal;
+  color: black;
   src: local('LANENAR'), url("fonts/LANENAR.woff") format("woff"),
         url("/fonts/LANENAR.woff2") format("woff2"),
         url("/fonts/LANENAR.tff") format("ttf");
 }
 
+@font-face {
+  font-family: 'WisdomScript';
+  font-weight: normal;
+  font-style: normal;
+  color: black;
+  src: local('WisdomScript'), url("fonts/WisdomScript.woff") format("woff"),
+        url("/fonts/WisdomScript.woff2") format("woff2"),
+        url("/fonts/WisdomScript.tff") format("ttf");
+}
+
+
+/* =================================== */
+/* ============= APP CSS ============= */
+/* =================================== */
+
 div, span, body, label, h1, h2, h3, h4 {
   font-family: "LANENAR";
+  color: black;
 }
 
 a { 
@@ -40,7 +64,32 @@ a {
 }
 
 
+/* ==================================== */
+/* ============= FADE CSS ============= */
+/* ==================================== */
 
+.fadecss{
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 2s;
+  opacity: 0;
+  visibility: hidden; 
+}
+
+.fadecss.show{
+  opacity: 1;
+  visibility: visible;
+}
+
+.fade-slower{
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 3s;
+  opacity: 0;
+  visibility: hidden; 
+}
 
 /*THIS WAS FROM FILE app.scss*/
 /*.app {

@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import Helmet from 'react-helmet';
+import {ContactForm} from 'components';
 
 export default class Contact extends Component {
   constructor(props){
@@ -8,8 +9,8 @@ export default class Contact extends Component {
 
   render() {
     return (
-      <div>
-        Contact
+      <div className="contact">
+        <ContactForm />
       </div>
     );
   }

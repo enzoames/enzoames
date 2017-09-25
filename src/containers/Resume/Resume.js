@@ -110,7 +110,7 @@ export default class Resume extends Component {
             <div>
             {renderResumeInnerContent("DRMR App - Swift", "This app focuses on providing a platform for people to write down their dreams (dream journal). Using swift, we register each user and all their corresponding dreams to the database. DRMR offers the “tagging” feature which allows users to tag different users in their dreams", "Spring 2017")}
             {renderResumeInnerContent("Geospatial and Temporal Analysis of News Based Tweets - PySpark", "Analyzed Twitter to gain a better understanding of how users share information through social media platforms. This analysis uses Twitter’s streaming API to collect tweets and also uses the NY times archive API to cross reference the same tweets to understand popular topics tweeted and the relevance of news based on tweets", "Spring 2017")}
-            {renderResumeInnerContent("Ticket Reservation System – Django Framework - Python", "This system enhances the functionality of the Amtrak ticket booking system. This system is implemented using Django Framework and hosted using Google Cloud Platform. Users are provided with a larger selection of departure times, quick train searching, and in advance train booking", "Spring 2017")}
+            {renderResumeInnerContent("Ticket Reservation System – Django Framework & Python", "This system enhances the functionality of the Amtrak ticket booking system. This system is implemented using Django Framework and hosted using Google Cloud Platform. Users are provided with a larger selection of departure times, quick train searching, and in advance train booking", "Spring 2017")}
             </div>
           }
         </div>        

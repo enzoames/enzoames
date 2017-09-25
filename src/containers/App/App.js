@@ -17,6 +17,7 @@ import '../../helpers/home.css';
 import '../../helpers/work.css';
 import '../../helpers/resume.css';
 import '../../helpers/about.css';
+import '../../helpers/contact.css';
 
 @asyncConnect([{
   promise: ({store: {dispatch, getState}}) => {
@@ -38,7 +39,6 @@ export default class App extends Component {
   static contextTypes = {
     store: PropTypes.object.isRequired
   };
-
 
   componentWillReceiveProps(nextProps) {
     if (!this.props.user && nextProps.user) {
@@ -108,7 +108,6 @@ export default class App extends Component {
         <div className='well text-center'>
         </div>
         */}
-        
       
       </div>
     );

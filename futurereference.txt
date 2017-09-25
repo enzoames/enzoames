@@ -26,3 +26,27 @@ Module build failed: SyntaxError: Unexpected token (41:2)
 TURN ON AND OFF DEV TOOLS IS IN karma.config.js file
 
 __DEVTOOLS__: true  // <-------- DISABLE redux-devtools HERE
+
+
+==========================================
+================ DATABASE ================
+==========================================
+
+DATABASE NAME:  plugr
+DATABASE USER:  enzo
+ database password: enzoames1992
+
+
+==========================================
+================ API SET UP ================
+==========================================
+
+These files have to be modified in order to make api calls to another server
+
+config.js
+server.js
+package.json
+helpers/apiClient.js 
+remove file api.js inside bin folder
+
+

@@ -30,3 +30,5 @@ npm-debug.log
 src/config.js
 assets/
 static/
+
+helpers/fonts

@@ -4,6 +4,7 @@ import multireducer from 'multireducer';
 import {reducer as reduxAsyncConnect} from 'redux-async-connect';
 import auth from './auth';
 import counter from './counter';
+import gallery from './gallery';
 import {reducer as form} from 'redux-form';
 
 export default combineReducers({
@@ -15,4 +16,5 @@ export default combineReducers({
     counter2: counter,
     counter3: counter
   }),
+  gallery,
 });
