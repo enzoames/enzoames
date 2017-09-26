@@ -15,12 +15,12 @@ export default function gallery(state = initialState, action = {}){
       });
 
     case LOAD_GALLERY_SUCCESS:
-      console.log("\n=>IN REDUX", action);
       return Object.assign({}, state, {
         isFetching: false,
         loaded: true,
         galleryList: action.result
       });
+      
     case LOAD_GALLERY_FAILURE:
       return Object.assign({}, state, {
         error: action.error

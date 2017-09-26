@@ -14,3 +14,4 @@ export FadeAttribute from './FadeAttribute/FadeAttribute';
 export RenderForm from './RenderForm/RenderForm';
 export ContactForm from './ContactForm/ContactForm';
 export HomePage from './HomePage/HomePage';
+export Photo from './Photo/Photo';

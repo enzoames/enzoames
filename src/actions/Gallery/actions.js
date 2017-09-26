@@ -8,6 +8,13 @@ export function fetchGalleryHome() {
 }
 
 
+export function fetchGalleryCovers() {
+  return {
+    types: [LOAD_GALLERY_REQUEST, LOAD_GALLERY_SUCCESS, LOAD_GALLERY_FAILURE],
+    promise: (client) => client.get('api/gallery/covers/')
+  };
+}
+
 // export function fetchGallery(slug) {
 //   return {
 //     types: [LOAD_GALLERY_REQUEST, LOAD_GALLERY_SUCCESS, LOAD_GALLERY_FAILURE],

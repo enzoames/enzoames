@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
-import { FadeAttribute } from 'components';
+import { FadeAttribute, Photo } from 'components';
 
 export default class HomePage extends Component {
   constructor(props) {
@@ -16,7 +16,7 @@ export default class HomePage extends Component {
     //console.log("updateDimensions");
     let winWidth = window.innerWidth; //let winWidth = $(window).width();
     let winHeight = window.innerHeight; //let winHeight = $(window).height();
-    this.setState({width: winWidth, height: winHeight-50});
+    this.setState({width: winWidth, height: winHeight});
   }
 
   componentDidMount() {
@@ -28,7 +28,7 @@ export default class HomePage extends Component {
   componentWillMount() {
     //console.log("componentWillMount"); //APP.JS NEEDS TO PASS DOWN SIZE OF WINDOW TO START WITH
     this.updateDimensions;
-    //console.log("componentWillMount2");
+    //console.log("componntWillMount2");
   }
 
   componentWillUnmount() {
@@ -40,6 +40,7 @@ export default class HomePage extends Component {
   }
 
   render() {
+    const {galleryList} = this.props;
     console.log("HOMEPAGE PROPS", this.props);
     console.log("HOMEPAGE STATE", this.state);
 
@@ -59,16 +60,17 @@ export default class HomePage extends Component {
     return (
       <div>
 
-        <div className="background" style={{height: this.state.height+25 + 'px'}}>
+        {galleryList.loaded &&
+          <Photo className="background-photo" src={galleryList.galleryList[0].photo.image} parentsHeight={this.state.height} /> 
+        }
 
-          <FadeAttribute parentStyleClassName={"my-title"} innerContent={renderFadeTitle}/>
-          <FadeAttribute parentStyleClassName={"my-subtitle fade-slower"} innerContent={renderFadeSubtitle}/>
+        <FadeAttribute parentStyleClassName={"my-title"} innerContent={renderFadeTitle}/>
+        <FadeAttribute parentStyleClassName={"my-subtitle fade-slower"} innerContent={renderFadeSubtitle}/>
 
-          <div className="my-links">
-            {renderLink("col-xs-12 col-sm-12 col-md-2 col-md-offset-3", "Photography", "/work", "")}
-            {renderLink("col-xs-12 col-sm-12 col-md-2", "Resume", "/resume", "")}
-            {renderLink("col-xs-12 col-sm-12 col-md-2", "Github", "", this.handleRedirect)}
-          </div>
+        <div className="my-links">
+          {renderLink("col-xs-12 col-sm-12 col-md-2 col-md-offset-3", "Photography", "/work", "")}
+          {renderLink("col-xs-12 col-sm-12 col-md-2", "Resume", "/resume", "")}
+          {renderLink("col-xs-12 col-sm-12 col-md-2", "Github", "", this.handleRedirect)}
         </div>
 
       </div>
@@ -77,6 +79,8 @@ export default class HomePage extends Component {
 }
 
 
+
+// <div className="background" style={{height: this.state.height+25 + 'px'}}>
 
           // <div className="my-title">
           //   <h3>Enzo Ames</h3>
