@@ -13,22 +13,18 @@ export default class HomePage extends Component {
   }
 
   updateDimensions = () => {
-    //console.log("updateDimensions");
     let winWidth = window.innerWidth; //let winWidth = $(window).width();
     let winHeight = window.innerHeight; //let winHeight = $(window).height();
     this.setState({width: winWidth, height: winHeight});
   }
 
   componentDidMount() {
-    //console.log("componentDidMount");
     this.updateDimensions();
     window.addEventListener("resize", this.updateDimensions);
   }
 
   componentWillMount() {
-    //console.log("componentWillMount"); //APP.JS NEEDS TO PASS DOWN SIZE OF WINDOW TO START WITH
     this.updateDimensions;
-    //console.log("componntWillMount2");
   }
 
   componentWillUnmount() {
@@ -40,7 +36,7 @@ export default class HomePage extends Component {
   }
 
   render() {
-    const {galleryList} = this.props;
+    const {homegallery} = this.props;
     console.log("HOMEPAGE PROPS", this.props);
     console.log("HOMEPAGE STATE", this.state);
 
@@ -60,8 +56,8 @@ export default class HomePage extends Component {
     return (
       <div>
 
-        {galleryList.loaded &&
-          <Photo className="background-photo" src={galleryList.galleryList[0].photo.image} parentsHeight={this.state.height} /> 
+        {this.props.homegallery.loaded ? 
+          (<Photo className="background-photo" src={homegallery.homegallery[0].photo.image} parentsHeight={this.state.height} />) : ''
         }
 
         <FadeAttribute parentStyleClassName={"my-title"} innerContent={renderFadeTitle}/>
@@ -77,6 +73,8 @@ export default class HomePage extends Component {
     );
   }
 }
+
+
 
 
 

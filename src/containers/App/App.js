@@ -7,7 +7,12 @@ import Nav from 'react-bootstrap/lib/Nav';
 import NavItem from 'react-bootstrap/lib/NavItem';
 import Helmet from 'react-helmet';
 import renderHTML from 'react-render-html';
+
 import { isLoaded as isAuthLoaded, load as loadAuth, logout } from 'redux/modules/auth';
+import { isLoaded as isHomeGalleryLoaded } from 'redux/modules/homegallery';
+import { isLoaded as isCoversGalleryLoaded } from 'redux/modules/coversgallery';
+import { fetchGalleryHome, fetchGalleryCovers } from '../../actions/Gallery/actions';
+
 import { push } from 'react-router-redux';
 import config from '../../config';
 import { asyncConnect } from 'redux-async-connect';
@@ -22,14 +27,24 @@ import '../../helpers/contact.css';
 @asyncConnect([{
   promise: ({store: {dispatch, getState}}) => {
     const promises = [];
-    // if (!isAuthLoaded(getState())) {
-    //   promises.push(dispatch(loadAuth()));
-    // }
+    if (!isHomeGalleryLoaded(getState())) {
+      console.log("dispatching::fetchGalleryHome");
+      promises.push(dispatch(fetchGalleryHome()));
+    }
+    if (!isCoversGalleryLoaded(getState())) {
+      console.log("dispatching::fetchGalleryCovers");
+      promises.push(dispatch(fetchGalleryCovers()));
+    }
     return Promise.all(promises);
   }
 }])
+
 @connect(
-  state => ({user: state.auth.user}),
+  (state, ownProps) => ({
+    user: state.auth.user,
+    params: ownProps.params,
+    location: ownProps.location,
+  }),
   {logout, pushState: push})
 
 export default class App extends Component {
@@ -56,7 +71,7 @@ export default class App extends Component {
   };
 
   render() {
-    console.log("\n\n==> APP.JS props\n\n", this.props);
+    console.log("\n\n==> APP PROPS:\n\n", this.props);
     const {user} = this.props;
 
     return (

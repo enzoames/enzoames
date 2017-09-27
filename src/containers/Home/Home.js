@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
+import Helmet from 'react-helmet';
+import config from '../../config';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import config from '../../config';
-import Helmet from 'react-helmet';
-import { Link } from 'react-router';
-import { Redirect } from 'react-router'
-import { HomePage, FadeAttribute } from 'components';
+import { HomePage } from 'components';
 import { fetchGalleryHome } from '../../actions/Gallery/actions';
 
 class Home extends Component {
@@ -13,19 +11,21 @@ class Home extends Component {
     super(props);
   }
 
-  componentWillMount(){
-    this.props.actions.fetchGalleryHome()
-  }
-
   componentDidMount(){
-    //FETCH albuum covers for work page
+    console.log("componentDidMount::isHomeGalleryLoaded?");
+    console.log("componentDidMount::HOME:", this.props);
+    if(!this.props.homegallery.loaded){
+      console.log("componentDidMount::isHomeGalleryLoaded:NO:dispatch:fetchGalleryHome");
+      this.props.actions.fetchGalleryHome()
+    }
   }
 
   render() {
-    const {gallery} = this.props;
+    console.log("\nHOME PROPS:", this.props);
+    const {homegallery} = this.props;
     return (
       <div className="home">
-        <HomePage galleryList={gallery} />
+        <HomePage homegallery={homegallery} />
       </div>
     );
   }
@@ -39,7 +39,7 @@ const mapDispatchToProps = (dispatch) =>{
 
 const mapStateToProps = (state) => {
   return {
-    gallery: state.gallery
+    homegallery: state.homegallery
   }
 }
 
