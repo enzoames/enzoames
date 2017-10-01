@@ -5,6 +5,7 @@ const initialState = {
   isFetching: false,
   loaded: false,
   coversgallery: [],
+  gallerytype: "covers_gallery",
 }
 
 export default function coversgallery(state = initialState, action = {}){
@@ -16,6 +17,7 @@ export default function coversgallery(state = initialState, action = {}){
       });
 
     case LOAD_COVERSGALLERY_SUCCESS:
+      console.log("\nLOAD_COVERSGALLERY_SUCCESS\n", action);
       return Object.assign({}, state, {
         isFetching: false,
         loaded: true,

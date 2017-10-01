@@ -5,6 +5,7 @@ const initialState = {
   isFetching: false,
   loaded: false,
   homegallery: [],
+  gallerytype: "home_gallery",
 }
 
 export default function homegallery(state = initialState, action = {}){
@@ -16,7 +17,7 @@ export default function homegallery(state = initialState, action = {}){
       });
 
     case LOAD_HOMEGALLERY_SUCCESS:
-      console.log("\nREDUX HOMEGALLERY\n", action);
+      console.log("\LOAD_HOMEGALLERY_SUCCESS\n", action);
       return Object.assign({}, state, {
         isFetching: false,
         loaded: true,

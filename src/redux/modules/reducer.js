@@ -5,6 +5,10 @@ import {reducer as reduxAsyncConnect} from 'redux-async-connect';
 import auth from './auth';
 import homegallery from './homegallery';
 import coversgallery from './coversgallery';
+import fixedlinkgallery from './fixedlinkgallery';
+import nycgallery from './nycgallery';
+import peoplegallery from './peoplegallery';
+import streetsgallery from './streetsgallery';
 import {reducer as form} from 'redux-form';
 
 export default combineReducers({
@@ -13,6 +17,10 @@ export default combineReducers({
   auth,
   homegallery,
   coversgallery,
+  fixedlinkgallery,
+  nycgallery,
+  peoplegallery,
+  streetsgallery,
 });
 
 

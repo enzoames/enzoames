@@ -3,6 +3,7 @@
 /* ==================================== */
 .home{
   margin-top: -50px;
+  overflow: hidden;
   /*color: white;*/
 }
 
@@ -32,6 +33,14 @@
   letter-spacing: 2px;
 }
 
+.my-title h1{
+  letter-spacing: 14px;
+}
+
+.my-subtitle h2 {
+  letter-spacing: 8px;
+}
+
 /* ====================================== */
 /* ============= Link Style ============= */
 /* ====================================== */
@@ -41,7 +50,7 @@
 } 
 
 .link-style{
-  font-size: 18px;
+  font-size: 25px;
   padding-bottom: 7px;
   display: inline-block;
   height: 32px;
@@ -85,8 +94,27 @@
 /* ============================================ */
 
 .background-photo{
+  position: absolute;
   height: 100%;
-  width: 100%;
+  min-width: 100%;
+  max-width: none;
   background-size: cover;
 }
+
+
+/* ========================================= */
+/* ============= Media Queires ============= */
+/* ========================================= */
+
+@media only screen and (max-width: 970px){
+  .background-photo{
+    margin-left: -228px;
+  }
+}
+
+
+
+
+
+
 

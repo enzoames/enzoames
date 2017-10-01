@@ -3,8 +3,8 @@ import Helmet from 'react-helmet';
 import config from '../../config';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { HomePage } from 'components';
 import { fetchGalleryHome } from '../../actions/Gallery/actions';
+import { HomePage } from 'components';
 
 class Home extends Component {
   constructor(props){

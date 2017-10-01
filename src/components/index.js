@@ -15,3 +15,4 @@ export RenderForm from './RenderForm/RenderForm';
 export ContactForm from './ContactForm/ContactForm';
 export HomePage from './HomePage/HomePage';
 export Photo from './Photo/Photo';
+export WorkPage from './WorkPage/WorkPage'; 
