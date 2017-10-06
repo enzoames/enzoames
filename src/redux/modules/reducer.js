@@ -9,6 +9,8 @@ import fixedlinkgallery from './fixedlinkgallery';
 import nycgallery from './nycgallery';
 import peoplegallery from './peoplegallery';
 import streetsgallery from './streetsgallery';
+import verticalgallery from './verticalgallery';
+import youngenzogallery from './youngenzogallery';
 import {reducer as form} from 'redux-form';
 
 export default combineReducers({
@@ -21,6 +23,8 @@ export default combineReducers({
   nycgallery,
   peoplegallery,
   streetsgallery,
+  verticalgallery,
+  youngenzogallery,
 });
 
 

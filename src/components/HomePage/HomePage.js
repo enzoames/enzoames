@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
-import { FadeAttribute, Photo } from 'components';
+import { FadeAttribute, Photo, Loader } from 'components';
 
 export default class HomePage extends Component {
   constructor(props) {
@@ -57,7 +57,7 @@ export default class HomePage extends Component {
       <div>
 
         {this.props.homegallery.loaded ? 
-          (<Photo className="background-photo" src={homegallery.homegallery[0].photo.image} parentsHeight={this.state.height} />) : ''
+          (<Photo className="" photoClassName="img-responsive background-photo" src={homegallery.homegallery[0].photo.image} parentsHeight={this.state.height} />) : (<Loader />)
         }
 
         <FadeAttribute parentStyleClassName={"my-title"} innerContent={renderFadeTitle}/>

@@ -38,7 +38,7 @@ DATABASE USER:  enzo
 
 
 ==========================================
-================ API SET UP ================
+================ API SET UP ==============
 ==========================================
 
 These files have to be modified in order to make api calls to another server
@@ -48,5 +48,39 @@ server.js
 package.json
 helpers/apiClient.js 
 remove file api.js inside bin folder
+
+=============================================================
+================ INSTALLATION OF SLIDER SET UP ==============
+=============================================================
+
+https://github.com/akiran/react-slick
+
+$ npm install react-slick
+
+$ npm install slick-carousel
+
+
+===========================================================
+================ QUICK IMAGE RESIZING ON MAC ==============
+===========================================================
+
+
+$ sips -Z 640 *.jpg
+
+So what's happening? Well, "sips" is the command being used and -Z tells it to maintain the image's aspect ratio. "640" is the maximum height and width to be used and "*.jpg" instructs your computer to downsize every image ending in .jpg. It's really simple and shrinks your images very quickly. Just be sure to make a copy first if you want to preserve their larger size as well.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

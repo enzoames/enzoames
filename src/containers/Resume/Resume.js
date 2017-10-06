@@ -71,7 +71,7 @@ export default class Resume extends Component {
     return (
       <div className="Resume container-fluid">
         <h1>Edwards Enzo Ames Pizarro</h1>
-        <h3>New York City {renderIcon} 917 724 5096 {renderIcon} e.amespizarro@gmail.com {renderIcon} Linkedin {renderIcon} https://github.com/enzoames</h3>
+        <h3 className="sub-t">New York City {renderIcon} 917 724 5096 {renderIcon} e.amespizarro@gmail.com {renderIcon} Linkedin {renderIcon} https://github.com/enzoames</h3>
 
         <div className="content col-sm-12 col-md-12">
           <h3 className="content-title edu-trigger" onClick={ () => this.handleClick("educationFlag") } >{renderEducationIcon}Education</h3>

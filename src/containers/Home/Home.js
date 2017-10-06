@@ -12,8 +12,6 @@ class Home extends Component {
   }
 
   componentDidMount(){
-    console.log("componentDidMount::isHomeGalleryLoaded?");
-    console.log("componentDidMount::HOME:", this.props);
     if(!this.props.homegallery.loaded){
       console.log("componentDidMount::isHomeGalleryLoaded:NO:dispatch:fetchGalleryHome");
       this.props.actions.fetchGalleryHome()

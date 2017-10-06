@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { hasValue } from '../../utils/utilfunctions';
-import { FadeAttribute, Photo } from 'components';
+import { FadeAttribute, Photo, Loader } from 'components';
 
 export default class WorkPage extends Component {
   constructor(props){
@@ -38,21 +38,25 @@ export default class WorkPage extends Component {
     this.setState({isCoverView: true});
   }
 
-  handleGalleryToggle = () =>{
-    console.log("\nhandleGalleryToggle");
-  }
+  // =============================
+  // ====== RENDER FUNCTION ======
+  // =============================
 
   render() {
     const {coversgallery, nycgallery, peoplegallery, streetsgallery, fixedlinkgallery, } = this.props;
     console.log("PROPS WORKPAGE:", this.props);
     console.log("STATE WORKPAGE:", this.state);
 
+    // =========================================
+    // ============= Render Covers =============
+    // =========================================
+
     const renderCoversGalleryView = () => {
       let coversCollection;
       if (coversgallery.loaded){
         coversCollection = coversgallery.coversgallery.map( (photo) => 
           <div className="col-sm-12 col-md-6 col-lg-6 cover-wrap" onClick={ () => this.handleClick(photo.gallery_name)}>
-            <Photo className={""} src={photo.photo.image} parentsHeight={null} />
+            <Photo className="" photoClassName="img-responsive " src={photo.photo.image} parentsHeight={null} />
             <div className="cover-details">
               <span>-- view --</span>
               <span>{photo.gallery_name}</span>
@@ -60,7 +64,7 @@ export default class WorkPage extends Component {
           </div>
         );
       } else {
-        coversCollection = "LOADING . . .";
+        coversCollection = <Loader className="" />;
       }
 
       return(
@@ -69,6 +73,10 @@ export default class WorkPage extends Component {
         </div>
       );
     }
+
+    // =================================================
+    // ============= Render Single Gallery =============
+    // =================================================
 
     const renderSingleGalleryView = (selectedGallery) => {
       let currentGallery; //array containing photos
@@ -111,7 +119,7 @@ export default class WorkPage extends Component {
       if(currentGallery){
         currentGalleryDisplay = currentGallery.map( (photo) => 
           <div className="single-photo">
-            <Photo className={""} src={photo.photo.image} parentsHeight={null} />
+            <Photo className="" photoClassName="img-responsive " src={photo.photo.image} parentsHeight={null} />
           </div>
         );
       }
@@ -119,10 +127,10 @@ export default class WorkPage extends Component {
       const galleryLinks =
         <div className="gallery-sidebar">
           <span className="glyphicon glyphicon-menu-left" onClick={this.handleBackButton}></span>
-          <h3 className={ highlightArray[0] ? "highlight-style" : ""} onClick={this.handleGalleryToggle}>NYC</h3>
-          <h3 className={ highlightArray[1] ? "highlight-style" : ""} onClick={this.handleGalleryToggle}>People</h3>
-          <h3 className={ highlightArray[2] ? "highlight-style" : ""} onClick={this.handleGalleryToggle}>Streets</h3>
-          <h3 className={ highlightArray[3] ? "highlight-style" : ""} onClick={this.handleGalleryToggle}>FixedLink</h3>
+          <h3 className={ highlightArray[0] ? "highlight-style" : ""} onClick={ () => this.handleClick("nyc_gallery")}>NYC</h3>
+          <h3 className={ highlightArray[1] ? "highlight-style" : ""} onClick={ () => this.handleClick("people_gallery")}>People</h3>
+          <h3 className={ highlightArray[2] ? "highlight-style" : ""} onClick={ () => this.handleClick("streets_gallery")}>Streets</h3>
+          <h3 className={ highlightArray[3] ? "highlight-style" : ""} onClick={ () => this.handleClick("fixedlink_gallery")}>FixedLink</h3>
         </div>;
 
 
@@ -130,12 +138,15 @@ export default class WorkPage extends Component {
         <div>
           <FadeAttribute parentStyleClassName={"col-xs-12 col-sm-12 col-md-2 col-lg-2 left-content"} innerContent={galleryLinks} />
           <div className="col-xs-12 col-sm-12 col-md-10 col-lg-10 right-content">
-            {currentGalleryDisplay}
+            {currentGalleryDisplay ? (hasValue(currentGalleryDisplay) ?  currentGalleryDisplay : <Loader /> ) : <Loader /> }
           </div>
         </div>
       );
     }
 
+    // ==================================================
+    // ============= Render Function Return =============
+    // ==================================================
 
     return (
       <div>

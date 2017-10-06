@@ -4,6 +4,8 @@ import { LOAD_HOMEGALLERY_REQUEST, LOAD_HOMEGALLERY_SUCCESS, LOAD_HOMEGALLERY_FA
   LOAD_NYCGALLERY_REQUEST, LOAD_NYCGALLERY_SUCCESS, LOAD_NYCGALLERY_FAILURE,
   LOAD_STREETSGALLERY_REQUEST, LOAD_STREETSGALLERY_SUCCESS, LOAD_STREETSGALLERY_FAILURE,
   LOAD_FIXEDLINKGALLERY_REQUEST, LOAD_FIXEDLINKGALLERY_SUCCESS, LOAD_FIXEDLINKGALLERY_FAILURE,
+  LOAD_VERTICALGALLERY_REQUEST, LOAD_VERTICALGALLERY_SUCCESS, LOAD_VERTICALGALLERY_FAILURE,
+  LOAD_YOUNGENZOGALLERY_REQUEST, LOAD_YOUNGENZOGALLERY_SUCCESS, LOAD_YOUNGENZOGALLERY_FAILURE,
 } from '../../redux/modules/constants';
 
 
@@ -48,6 +50,21 @@ export function fetchGalleryFixedlink() {
     promise: (client) => client.get('api/ea/gallery/fixedlink_gallery/')
   };
 }
+
+export function fetchGalleryVertical() {
+  return {
+    types: [LOAD_VERTICALGALLERY_REQUEST, LOAD_VERTICALGALLERY_SUCCESS, LOAD_VERTICALGALLERY_FAILURE],
+    promise: (client) => client.get('api/ea/gallery/vertical/')
+  };
+}
+
+export function fetchGalleryYoungEnzo() {
+  return {
+    types: [LOAD_YOUNGENZOGALLERY_REQUEST, LOAD_YOUNGENZOGALLERY_SUCCESS, LOAD_YOUNGENZOGALLERY_FAILURE],
+    promise: (client) => client.get('api/ea/gallery/youngenzo_gallery/')
+  };
+}
+
 
 // export function fetchGallery(slug) {
 //   return {

@@ -102,11 +102,13 @@
 /* ======== Media Queries ========== */
 /* ================================= */
 
-
-
 @media only screen and (max-width: 566px){
   .cover-details span{
     font-size: 10px;
+  }
+  .cover-details{
+    top: 14%;
+    left: 20%;
   }
 }
 

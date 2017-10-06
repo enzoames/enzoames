@@ -42,6 +42,7 @@
 
 .contact-form-wrap textarea{
   margin-bottom: 35px;
+  font-size: 20px;
 }
 
 .text-area{
@@ -93,12 +94,32 @@
 }
 
 
-/* ===================================================== */
-/* ============= RIGHT SIDE OF FORM STYLE  ============= */
-/* ===================================================== */
+/* ================================= */
+/* == RIGHT SIDE OF FORM, STYLE  === */
+/* ================================= */
 
 .right-content{
   margin-top: 15px;
   font-size: 18px;
   letter-spacing: 2px;
 }
+
+
+
+/* ================================= */
+/* ======== Media Queries ========== */
+/* ================================= */
+
+@media only screen and (max-width: 991px){
+  .contact-form-wrap{
+    border: none;
+  }
+
+}
+
+
+
+
+
+
+

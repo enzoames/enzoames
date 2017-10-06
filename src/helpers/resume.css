@@ -75,29 +75,22 @@ h3{
   font-size: 15px;
 }
 
+/* ============================= */
+/* ====== MEDIA QUEIRIES ======= */
+/* ============================= */
 
-/*============================================*/
-/*============================================*/
-/*============== DROP DOWN CSS ===============*/
-/*============================================*/
-/*============================================*/
 
-/*.edu-trigger{
-  position: relative;
-  color: black;
+@media only screen and (max-width: 835px){
+  .date{
+    width: 100%;
+  }
 }
 
-.edu-trigger:hover{
-  position: relative;
-  color: red;
-}*/
-
-
-
-
-
-
-
+@media only screen and (max-width: 511px){
+  .sub-t{
+    font-size: 18px;
+  }
+}
 
 
 

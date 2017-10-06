@@ -16,3 +16,6 @@ export ContactForm from './ContactForm/ContactForm';
 export HomePage from './HomePage/HomePage';
 export Photo from './Photo/Photo';
 export WorkPage from './WorkPage/WorkPage'; 
+export Loader from './Loader/Loader'; 
+export AboutPage from './AboutPage/AboutPage';
+export SliderSlick from './SliderSlick/SliderSlick'; 

@@ -33,7 +33,9 @@ export default class Html extends Component {
           {head.link.toComponent()}
           {head.script.toComponent()}
 
-          <link rel="shortcut icon" href="/favicon.ico" />
+          {/*<link rel="shortcut icon" href="/favicon.ico" />*/}
+          <link rel="shortcut icon" href="http://www.heremytattoo.com/wp-content/uploads/2013/06/gothic-lowercase-letter-e-tattoo.jpg" />
+
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           {/* styles (will be present only in production with webpack extract text plugin) */}
           {Object.keys(assets.styles).map((style, key) =>
@@ -41,6 +43,7 @@ export default class Html extends Component {
                   rel="stylesheet" type="text/css" charSet="UTF-8"/>
           )}
 
+          <link rel="stylesheet" href="https://unpkg.com/react-select/dist/react-select.css" />
           {/* (will be present only in development mode) */}
           {/* outputs a <style/> tag with all bootstrap styles + App.scss + it could be CurrentPage.scss. */}
           {/* can smoothen the initial style flash (flicker) on page load in development mode. */}
@@ -51,6 +54,11 @@ export default class Html extends Component {
           <div id="content" dangerouslySetInnerHTML={{__html: content}}/>
           <script dangerouslySetInnerHTML={{__html: `window.__data=${serialize(store.getState())};`}} charSet="UTF-8"/>
           <script src={assets.javascript.main} charSet="UTF-8"/>
+
+          <script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+          <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css" />
+          <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css" />
+
         </body>
       </html>
     );

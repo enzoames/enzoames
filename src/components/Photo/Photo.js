@@ -7,11 +7,19 @@ export default class Photo extends Component {
   }
 
   render() {
-    const { className, src, parentsHeight} = this.props; 
-    const tempHeight = hasValue(parentsHeight) ? parentsHeight : "";
+    const { className, photoClassName, src, parentsHeight} = this.props; // MAKE SURE PARENTHIGHT IS SET TO NULL IF NO VALUE IS PASSED
+    //const styleString = hasValue(parentsHeight) ? `style={{height: ${parentsHeight} + 'px'}}` : ""; //{...styleString}
+    const Result = hasValue(parentsHeight) ? 
+      (<div className={className} style={{height: parentsHeight + 'px'}} >
+        <img className={photoClassName} src={src}/>
+      </div>) : 
+      (<div className={className} >
+        <img className={photoClassName} src={src}/>
+      </div>);
+
     return (
-      <div style={{height: tempHeight + 'px'}}>
-        <img className={"img-responsive " + className} src={src}/>
+      <div>
+        {Result}
       </div>
     );
   }

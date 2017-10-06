@@ -67,22 +67,22 @@ export default class Contact extends Component {
     return (
       <div className="container">
 
-        <div className="top-margin contact-form-wrap col-xs-12 col-sm-12 col-md-8 col-lg-8">
-          <RenderInput label="First Name" value={this.state.firstName} name="firstName" placeholder="" error={this.state.errorObject.firstName.error} onChange={this.handleChange} outerGroupClassName={outerGroupClassName} labelClassName={labelClassName} inputGroupClassName={inputGroupClassName} />
-          <RenderInput label="Last Name" value={this.state.lastName} name="lastName" placeholder="" error={this.state.errorObject.lastName.error} onChange={this.handleChange} outerGroupClassName={outerGroupClassName} labelClassName={labelClassName} inputGroupClassName={inputGroupClassName} />
-          <RenderInput label="Company" value={this.state.company} name="company" placeholder="" error={this.state.errorObject.company.error} onChange={this.handleChange} outerGroupClassName={outerGroupClassName} labelClassName={labelClassName} inputGroupClassName={inputGroupClassName} />
-          <RenderInput label="Email" value={this.state.email} name="email" placeholder="" error={this.state.errorObject.email.error} onChange={this.handleChange} outerGroupClassName={outerGroupClassName} labelClassName={labelClassName} inputGroupClassName={inputGroupClassName} />          
-          <RenderTextBox label="Message Me" value={this.state.textarea} name="textarea" placeholder="" rows={5} error={this.state.errorObject.textarea.error} onChange={this.handleChange} outerGroupClassName={inputGroupClassName} labelClassName={labelClassName}  textAreaClassName={inputGroupClassName + " text-area"} />
-          <RenderSubmitButton outerGroupClassName={outerGroupClassNameButton} buttonClassName="contact-btn" onClick={this.handleSubmit} label="Send"/>
-        </div>
-
-        <div className="top-margin col-xs-12 col-sm-12 col-md-4 col-lg-4">
+        <div className="top-margin pull-right col-xs-12 col-sm-12 col-md-4 col-lg-4">
           <div className="right-content col-sm-12 col-md-12">
             <span>job opportunities, research, collaboration, etc. contact me</span>
           </div>
           <div className="right-content col-sm-12 col-md-12">
             <span>find a photo interesting? contact me to request a purchase or more information</span>
           </div>
+        </div>
+
+        <div className="top-margin contact-form-wrap col-xs-12 col-sm-12 col-md-8 col-lg-8">
+          <RenderInput label="First Name" value={this.state.firstName} name="firstName" placeholder="" error={this.state.errorObject.firstName.error} onChange={this.handleChange} outerGroupClassName={outerGroupClassName} labelClassName={labelClassName} inputGroupClassName={inputGroupClassName} />
+          <RenderInput label="Last Name" value={this.state.lastName} name="lastName" placeholder="" error={this.state.errorObject.lastName.error} onChange={this.handleChange} outerGroupClassName={outerGroupClassName} labelClassName={labelClassName} inputGroupClassName={inputGroupClassName} />
+          <RenderInput label="Company" value={this.state.company} name="company" placeholder="" error={this.state.errorObject.company.error} onChange={this.handleChange} outerGroupClassName={outerGroupClassName} labelClassName={labelClassName} inputGroupClassName={inputGroupClassName} />
+          <RenderInput label="Email" value={this.state.email} name="email" placeholder="" error={this.state.errorObject.email.error} onChange={this.handleChange} outerGroupClassName={outerGroupClassName} labelClassName={labelClassName} inputGroupClassName={inputGroupClassName} />          
+          <RenderTextBox label="Message Me" value={this.state.textarea} name="textarea" placeholder="" rows={5} error={this.state.errorObject.textarea.error} onChange={this.handleChange} outerGroupClassName={inputGroupClassName} labelClassName={labelClassName}  textAreaClassName={inputGroupClassName + " text-area"} />
+          <RenderSubmitButton outerGroupClassName={"col-xs-4 " + outerGroupClassNameButton} buttonClassName="contact-btn" onClick={this.handleSubmit} label="Send"/>
         </div>
 
       </div>

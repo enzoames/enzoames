@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { IndexLink } from 'react-router';
 import { LinkContainer } from 'react-router-bootstrap';
+import { Tabs, Tab } from 'react-bootstrap';
 import Navbar from 'react-bootstrap/lib/Navbar';
 import Nav from 'react-bootstrap/lib/Nav';
 import NavItem from 'react-bootstrap/lib/NavItem';
@@ -23,6 +24,14 @@ import '../../helpers/work.css';
 import '../../helpers/resume.css';
 import '../../helpers/about.css';
 import '../../helpers/contact.css';
+import '../../helpers/loader.css';
+
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
+// import "../../../node_modules/slick-carousel/slick/slick.css";
+// import "../../../node_modules/slick-carousel/slick/slick-theme.css";
+
 
 @asyncConnect([{
   promise: ({store: {dispatch, getState}}) => {

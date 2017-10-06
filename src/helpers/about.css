@@ -61,6 +61,7 @@
   font-size: 1.3em;
   letter-spacing: 2px;
   word-spacing: 5px;
+  padding: 0px 15px;
 }
 
 .gallery-slider{
@@ -73,6 +74,10 @@
   color: white;
 }
 
+.about-website .about-website-content .about-text span{
+  color: white;
+}
+
 /* ============================================ */
 /* ============= About Me Section ============= */
 /* ============================================ */
@@ -82,15 +87,40 @@
   margin-bottom: 35px;
 }
 
-.about-me-gallery{
+/*.about-me-gallery{
   width: 100%;
   background-color: black;
   height: 300px;
   margin-bottom: 15px;
-}
+}*/
 
 .bottom-margin{
   margin-bottom: 45px;
+}
+
+
+/* ================================== */
+/* ============= SLIDER ============= */
+/* ================================== */
+
+
+/*.single-photo-wrap img{
+  width: inherit;
+  height: inherit !important;
+}*/
+.parent{
+
+}
+
+.img-padding{
+  padding: 7px;
+}
+
+.slider-main-wrap{
+  height: 450px;
+  padding: 0 30px;
+  display: inline-block;
+  width: 474px;
 }
 
 /* ========================================== */
