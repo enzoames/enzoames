@@ -46,12 +46,12 @@ export default class Contact extends Component {
     if(!isThereError){
       const result = {
         firstname: this.state.firstName,
-        lastName: this.state.lastName,
+        lastname: this.state.lastName,
         company: this.state.company,
         email: this.state.email,
         message: this.state.textarea
       }
-      //this.props.actions.contactEnzoAmes(result);
+      this.props.contactEnzoAmes(result);
       console.log("RESULT", result);
       this.setState({sentflag: true});
       console.log("\n\nSuccess!!!");
