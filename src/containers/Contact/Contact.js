@@ -1,17 +1,30 @@
 import React, {Component} from 'react';
 import Helmet from 'react-helmet';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import {ContactForm} from 'components';
+import {contactEnzoAmes} from "../../actions/Contact/actions";
 
-export default class Contact extends Component {
+class Contact extends Component {
   constructor(props){
     super(props);
   }
 
   render() {
+    console.log("CONTACT PROPS: ", this.props);
     return (
       <div className="contact">
-        <ContactForm />
+        <ContactForm {...this.props.actions}/>
       </div>
     );
   }
 }
+
+
+const mapDispatchToProps = (dispatch) =>{
+  return {
+    actions: bindActionCreators({contactEnzoAmes}, dispatch)
+  }
+}
+
+export default connect(null, mapDispatchToProps)(Contact)
