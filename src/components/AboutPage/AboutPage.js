@@ -35,7 +35,7 @@ export default class About extends Component {
   // =============================
 
   render() {
-    const { verticalgallery, enzogallery } = this.props;
+    const {enzogallery } = this.props;
     console.log("PROPS ABOUTPAGE:", this.props);
 
     const renderFadeTitle = <span>I'm Enzo</span>;
@@ -44,16 +44,9 @@ export default class About extends Component {
     // ==============================
     // ====== Photo Containers ======
     // ==============================
-    let verticalgalleryContainer;
     let enzogalleryContainer;
 
-    if(verticalgallery.loaded && enzogallery.loaded){
-      verticalgalleryContainer = verticalgallery.verticalgallery.map( (photo) => 
-        <div>
-          <Photo className="parent" photoClassName="img-padding" src={photo.photo.image} parentsHeight={null} />
-        </div>
-      );
-
+    if(enzogallery.loaded){
       enzogalleryContainer = enzogallery.youngenzogallery.map( (photo) => 
         <div>
           <Photo className="parent" photoClassName="img-padding" src={photo.photo.image} parentsHeight={null} />
@@ -119,24 +112,29 @@ export default class About extends Component {
               
               {renderTitle("col-xs-12 col-sm-12 col-md-6 col-lg-6", "about-title white-font", "about my website", "&", "college experience" )}
 
-              <span className="about-text white-font"> This website has been build on top of React and Redux, two very popular 
-                javascript frameworks. Just with that being said I want to thank Henry for introducing me to these frameworks 
-                (also to Django) and teaching me what it really is to code at production level.
-                <br/><br/>enzoames.com is running on a linode, a cloud hosting server. Their documentation and tutorials were very 
-                helpful in the deploying aspect. In regards to the photography in this web application - the photos are being fetch 
+              <span className="about-text white-font"> This website has been built on top of React and Redux, two very popular 
+                JavaScript frameworks. Just with that being said I want to thank Henry for introducing me to these frameworks 
+                (and to Django!) and teaching me what it really is to code at production level.
+                <br/><br/>enzoames-dev.com is running on linode, a cloud hosting server. Their documentation and tutorials were very 
+                helpful in the deploying aspect. In regards to the photography displayed in this web application - the photos are being fetch 
                 from a Django backend application also created by me. 
                 <br/><br/>Over the summer (2017) I learned the necessary skills to build my personal website and it wasnt until
-                mid september that I started building it from scratch. Looking at the final product, I can see that
-                it has come a long way, in terms of code, design and efficiency.
-                <br/><br/>I can't put into words or explain my time at CCNY. 
+                mid september that I started building it from scratch. After a month of developing I can now look at the final product and see
+                it has come a long way - in terms of code, design and efficiency.
+                <br/><br/>I can't put into words or explain my time at CCNY. Here I met a lot of great people and with the help of them
+                I battleed throught the classes and the sleepless nights before a deadline. I will miss the experience, the people, and some
+                professors. However, I graduate June 2018 - I still have some time to enjoy my life as a ccny student before graduating 
+                and landing an awesome job.   
               </span>
 
             </div>
 
+            {/* 
             <div className="col-xs-12 col-sm-5 col-md-5 col-lg-5">
               <div className="gallery-slider" style={{height: this.state.height-100 + 'px'}}>
               </div>
             </div>
+            */}
 
           </div>
         </section>
@@ -145,14 +143,14 @@ export default class About extends Component {
 
           <div className="about-me-wrap">
 
-            {renderTitle("col-xs-12 col-sm-12 col-md-12 col-lg-12", "about-title", "myself, my photography", "&", "brave young years" )}
+            {renderTitle("col-xs-12 col-sm-12 col-md-12 col-lg-12", "about-title", "my photography", "&", "brave young years" )}
 
             {renderPhotoSlider}
 
             <div className="about-text">
               In 2013, all Sebastian and I needed were our skateboards, iPhones, and the willingness to explore the city. 
               As we grow up we don't realize the concept of time. Time is all we have in our lives. The fact that with age comes 
-              more responsibilities - our childhood dreams and freedom slowly slowly start to diminish.
+              more responsibilities - our childhood dreams and freedom slowly start to diminish.
               <br/><br/>Now you have a full time job to support yourself or enrolled full time in college trying to pursue a career. Why is it that during our late teens and early twenties we feel the most powerful? During this period, we think we can change the world with our ideas and actions.
               <br/><br/>Brave Young Years wants you to remember that there is a young powerful version of you sitting in your heart that will always be there long after time consumes you with responsibilities. Be powerful and never let time take away what is yours in nature. To create, explore, think, believe, and to always stay free. 
               <br/><br/>Through my photography I want you to find inspiration in yourself and see what this city is all about. If you make it here, you can make it anywhere. This city is all about the people you know; not to step over anyone but to use each other as a ladder for equal greatness for all. Big City Dreams is the name I give to this city because it is where big ideas are born.
@@ -161,11 +159,8 @@ export default class About extends Component {
 
           </div>
 
-
         </section>
       
-
-
       </div>
     );
   }

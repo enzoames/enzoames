@@ -11,8 +11,8 @@ class About extends Component {
   }
 
   componentDidMount(){
-    if(!this.props.verticalgallery.loaded && !this.props.youngenzogallery.loaded){
-      this.props.actions.fetchGalleryVertical();
+    if(!this.props.youngenzogallery.loaded){
+      //this.props.actions.fetchGalleryVertical();
       this.props.actions.fetchGalleryYoungEnzo();
     } 
   }
@@ -21,7 +21,7 @@ class About extends Component {
     const {verticalgallery, youngenzogallery} = this.props;
     return (
       <div className="About">
-        <AboutPage verticalgallery={verticalgallery} enzogallery={youngenzogallery}/>
+        <AboutPage enzogallery={youngenzogallery}/> {/* verticalgallery={verticalgallery} */}
       </div>
     );
   }
@@ -29,13 +29,13 @@ class About extends Component {
 
 const mapDispatchToProps = (dispatch) =>{
   return {
-    actions: bindActionCreators({fetchGalleryVertical, fetchGalleryYoungEnzo}, dispatch)
+    actions: bindActionCreators({fetchGalleryYoungEnzo}, dispatch)
   }
 }
 
 const mapStateToProps = (state) => {
   return {
-    verticalgallery: state.verticalgallery,
+    //verticalgallery: state.verticalgallery,
     youngenzogallery: state.youngenzogallery
   }
 }
