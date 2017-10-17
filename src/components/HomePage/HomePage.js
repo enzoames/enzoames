@@ -51,7 +51,7 @@ export default class HomePage extends Component {
 
     const renderFadeTitle = <h1>Enzo Ames</h1>;
     // Want something to fade slower - send the fade-slower className to FadeAttribute component
-    const renderFadeSubtitle = <h2>Front-End Developer and Photographer</h2>; 
+    const renderFadeSubtitle = <h2>Software Developer and Photographer</h2>; 
 
     return (
       <div>
