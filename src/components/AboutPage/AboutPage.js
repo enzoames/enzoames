@@ -152,11 +152,9 @@ export default class About extends Component {
               As we grow up we don't realize the concept of time. Time is all we have in our lives. The fact that with age comes 
               more responsibilities - our childhood dreams and freedom slowly start to diminish.
               <br/><br/>Now you have a full time job to support yourself or enrolled full time in college trying to pursue a career. Why is it that during our late teens and early twenties we feel the most powerful? During this period, we think we can change the world with our ideas and actions.
-              <br/><br/>Brave Young Years wants you to remember that there is a young powerful version of you sitting in your heart that will always be there long after time consumes you with responsibilities. Be powerful and never let time take away what is yours in nature. To create, explore, think, believe, and to always stay free. 
-              <br/><br/>Through my photography I want you to find inspiration in yourself and see what this city is all about. If you make it here, you can make it anywhere. This city is all about the people you know; not to step over anyone but to use each other as a ladder for equal greatness for all. Big City Dreams is the name I give to this city because it is where big ideas are born.
-              <br/><br/>If you like the concept of Brave Young Years then send me an email. Any comment is truly appreciated.
+              <br/><br/>Brave Young Years is an lifestyle developed by young individuals and friends, who want you to remember that there is a young powerful version of you living inside long after time consumes you with responsibilities. Be powerful and never let time take away what is yours in nature. To create, explore, think, believe, and to always stay free. 
+              <br/><br/>Through my photography I want you to find inspiration in yourself and see what this city is all about. If you make it here, you can make it anywhere. This city is all about the people you know; not to step over anyone but to use each other as a ladder for equal greatness for all.
             </div>
-
           </div>
 
         </section>
