@@ -1,6 +1,7 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 
 const Nav = styled.div`
   width: 800px;
@@ -45,34 +46,42 @@ const Cursor = styled.span`
   animation: ${blinkAnimation} 1s step-start infinite;
 `;
 
-function NavBar() {
+function NavBar({ path }) {
   return (
     <Wrap>
       <EnzoAmes>ENZO AMES</EnzoAmes>
       <Nav>
         <Item>
           <Link to="/">Home</Link>
-          <Cursor active />
+          <Cursor active={path === "/"} />
         </Item>
         <Item>
           <Link to="/photography">Photography</Link>
-          <Cursor />
+          <Cursor active={path === "/photography"} />
         </Item>
         <Item>
           <Link to="/resume">Resume</Link>
-          <Cursor />
+          <Cursor active={path === "/resume"} />
         </Item>
         <Item>
           <Link to="/about">About</Link>
-          <Cursor />
+          <Cursor active={path === "/about"} />
         </Item>
         <Item>
           <Link to="/contact">Contact</Link>
-          <Cursor />
+          <Cursor active={path === "/contact"} />
         </Item>
       </Nav>
     </Wrap>
   );
 }
+
+NavBar.propTypes = {
+  path: PropTypes.string.isRequired
+};
+
+NavBar.defaultProps = {
+  path: "/"
+};
 
 export default NavBar;

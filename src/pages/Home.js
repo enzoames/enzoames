@@ -1,5 +1,5 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
 const HomePage = styled.div`
   width: 100%;
@@ -7,11 +7,7 @@ const HomePage = styled.div`
 `;
 
 function Home() {
-  return (
-    <HomePage> 
-      Home      
-    </HomePage>
-  );
+  return <HomePage>Home</HomePage>;
 }
 
 export default Home;
