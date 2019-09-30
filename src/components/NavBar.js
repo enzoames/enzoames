@@ -2,32 +2,35 @@ import React from "react";
 import styled, { keyframes } from "styled-components";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
+import { COLORS } from "../styles/constants";
 
-const Nav = styled.div`
-  width: 800px;
-  padding: 30px;
+const Wrap = styled.div`
+  background-color: ${COLORS.WHITE};
   display: flex;
-  margin: 0 auto;
-`;
-
-const Item = styled.div`
-  width: 160px;
-  text-align: center;
-  font-size: 14px;
-  position: relative;
+  position: fixed;
+  width: 100%;
 `;
 
 const EnzoAmes = styled.div`
-  width: 400px;
-  padding: 30px;
-  text-align: center;
   font-size: 18px;
   letter-spacing: 2px;
+  padding: 30px 120px;
+  text-transform: uppercase;
+  width: 400px;
 `;
 
-const Wrap = styled.div`
+const Nav = styled.div`
   display: flex;
-  width: 100%;
+  margin: 0 auto;
+  padding: 30px;
+  width: 800px;
+`;
+
+const Item = styled.div`
+  font-size: 14px;
+  position: relative;
+  text-align: center;
+  width: 160px;
 `;
 
 const blinkAnimation = keyframes`
@@ -37,19 +40,19 @@ const blinkAnimation = keyframes`
 `;
 
 const Cursor = styled.span`
-  height: 1px;
-  background-color: black;
-  width: 10px;
-  position: absolute;
+  animation: ${blinkAnimation} 1s step-start infinite;
+  background-color: ${COLORS.BLACK};
   bottom: 3px;
   display: ${props => (props.active ? "inline-block" : "none")};
-  animation: ${blinkAnimation} 1s step-start infinite;
+  height: 1px;
+  position: absolute;
+  width: 10px;
 `;
 
 function NavBar({ path }) {
   return (
     <Wrap>
-      <EnzoAmes>ENZO AMES</EnzoAmes>
+      <EnzoAmes>enzo ames</EnzoAmes>
       <Nav>
         <Item>
           <Link to="/">Home</Link>
@@ -62,14 +65,6 @@ function NavBar({ path }) {
         <Item>
           <Link to="/resume">Resume</Link>
           <Cursor active={path === "/resume"} />
-        </Item>
-        <Item>
-          <Link to="/about">About</Link>
-          <Cursor active={path === "/about"} />
-        </Item>
-        <Item>
-          <Link to="/contact">Contact</Link>
-          <Cursor active={path === "/contact"} />
         </Item>
       </Nav>
     </Wrap>

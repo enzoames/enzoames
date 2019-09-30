@@ -1,13 +1,21 @@
 import React from "react";
 import styled from "styled-components";
 
-const Jobs = styled.div`
+const ResumePage = styled.div`
+  height: fit-content;
   width: 100%;
-  height: 100%;
+`;
+
+const Job = styled.div`
+  padding-top: 80px;
 `;
 
 function Resume() {
-  return <Jobs>Resume</Jobs>;
+  return (
+    <ResumePage>
+      <Job>Will get to this soon, promise...</Job>
+    </ResumePage>
+  );
 }
 
 export default Resume;
