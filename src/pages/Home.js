@@ -15,7 +15,7 @@ const Intro = styled.div`
   justify-content: center;
   letter-spacing: 1px;
   line-height: 36px;
-  padding: 0 30px 0 120px;
+  padding: 40px 30px 0 120px;
   width: 50%;
 `;
 
@@ -41,8 +41,8 @@ function Home() {
     <HomePage>
       <Intro>
         Hi, I'm Enzo - a photographer turned software engineer based in New York
-        City, currently helping Foursquare build beautifully designed web
-        applications.
+        City. Currently building beautifully designed web applications at
+        Foursquare.
       </Intro>
       <PhotoMe src={ENZ} />
       <AboutMe>
