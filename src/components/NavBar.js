@@ -1,8 +1,8 @@
-import React from "react";
-import styled, { keyframes } from "styled-components";
-import { Link } from "react-router-dom";
-import PropTypes from "prop-types";
-import { COLORS } from "../styles/constants";
+import React from 'react';
+import styled, { keyframes } from 'styled-components';
+import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import { COLORS } from '../styles/constants';
 
 const Wrap = styled.div`
   background-color: ${COLORS.WHITE};
@@ -11,12 +11,13 @@ const Wrap = styled.div`
   width: 100%;
 `;
 
-const EnzoAmes = styled.div`
+const EnzoAmes = styled.h1`
   font-size: 18px;
   letter-spacing: 2px;
   padding: 30px 120px;
   text-transform: uppercase;
   width: 400px;
+  margin: 0;
 `;
 
 const Nav = styled.div`
@@ -43,7 +44,7 @@ const Cursor = styled.span`
   animation: ${blinkAnimation} 1s step-start infinite;
   background-color: ${COLORS.BLACK};
   bottom: 3px;
-  display: ${props => (props.active ? "inline-block" : "none")};
+  display: ${props => (props.active ? 'inline-block' : 'none')};
   height: 1px;
   position: absolute;
   width: 10px;
@@ -56,15 +57,15 @@ function NavBar({ path }) {
       <Nav>
         <Item>
           <Link to="/">Home</Link>
-          <Cursor active={path === "/"} />
+          <Cursor active={path === '/'} />
         </Item>
         <Item>
           <Link to="/photography">Photography</Link>
-          <Cursor active={path === "/photography"} />
+          <Cursor active={path === '/photography'} />
         </Item>
         <Item>
           <Link to="/resume">Resume</Link>
-          <Cursor active={path === "/resume"} />
+          <Cursor active={path === '/resume'} />
         </Item>
       </Nav>
     </Wrap>
@@ -76,7 +77,7 @@ NavBar.propTypes = {
 };
 
 NavBar.defaultProps = {
-  path: "/"
+  path: '/'
 };
 
 export default NavBar;

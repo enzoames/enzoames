@@ -1,9 +1,9 @@
-import React from "react";
-import styled from "styled-components";
-import { COLORS } from "../styles/constants";
-import github from "../styles/img/github.png";
-import instagram from "../styles/img/instagram.png";
-import linkedin from "../styles/img/linkedin.png";
+import React from 'react';
+import styled from 'styled-components';
+import { COLORS } from '../styles/constants';
+import github from '../styles/img/github.png';
+import instagram from '../styles/img/instagram.png';
+import linkedin from '../styles/img/linkedin.png';
 
 const Wrap = styled.div`
   align-items: center;

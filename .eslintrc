@@ -1,0 +1,31 @@
+{
+  "extends": ["eslint-config-airbnb", "prettier/react", "plugin:prettier/recommended"],
+  "env": {
+    "browser": true,
+    "es6": true,
+    "jest": true,
+    "node": true
+  },
+  "plugins": ["react-hooks"],
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "rules": {
+    "no-plusplus": "off",
+    "prefer-destructuring": [
+      "error",
+      { "array": false, "object": true },
+      { "enforceForRenamedProperties": false }
+    ],
+    "jsx-a11y/anchor-is-valid": "off",
+    "jsx-a11y/label-has-associated-control": "off",
+    "jsx-a11y/label-has-for": "off",
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "off",
+    "react/jsx-filename-extension": ["error", { "extensions": [".js"] }],
+    "react/forbid-prop-types": "off"
+  }
+}
