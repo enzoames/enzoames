@@ -6,6 +6,8 @@ import { COLORS } from './constants';
 
 const GlobalStyle = createGlobalStyle`
   ${normalize()}  
+  
+  @import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
 
   * {
     box-sizing: border-box;
