@@ -1,3 +1,5 @@
+// Copyright 2019 enzoames Inc. All Rights Reserved.
+
 import React from 'react';
 import styled from 'styled-components';
 import ENZ from '../styles/img/ENZ_4262-1.jpg';
@@ -29,7 +31,7 @@ const PhotoMe = styled.img`
 const AboutMe = styled.div`
   margin: 0 auto;
   padding: 60px;
-  width: 1000px;
+  max-width: 1000px;
   letter-spacing: 1px;
 
   > h2 {

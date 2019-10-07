@@ -1,4 +1,4 @@
-// Copyright 2018 Club Sporta Inc. All Rights Reserved.
+// Copyright 2019 enzoames Inc. All Rights Reserved.
 
 import { createGlobalStyle } from 'styled-components';
 import { normalize } from 'polished';
@@ -59,20 +59,3 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 export default GlobalStyle;
-
-// LEARN OUR MEDIA QUEIRES
-
-// // Extra small devices (landscape phones, 576px and up)
-// @media only screen and (min-width: 330px) { ... }
-
-// // Small devices (landscape phones, 576px and up)
-// @media only screen and (min-width: 576px) { ... }
-
-// // Medium devices (tablets, 768px and up)
-// @media only screen and (min-width: 768px) { ... }
-
-// // Large devices (desktops, 992px and up)
-// @media only screen and (min-width: 992px) { ... }
-
-// // Extra large devices (large desktops, 1200px and up)
-// @media only screen and (min-width: 1200px) { ... }
