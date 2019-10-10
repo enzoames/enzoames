@@ -3,34 +3,40 @@
 import React from 'react';
 import styled from 'styled-components';
 import ENZ from '../styles/img/ENZ_4262-1.jpg';
-
-const HomePage = styled.div`
-  width: 100%;
-`;
+import media from '../styles/media';
 
 const Intro = styled.h1`
   align-items: center;
   display: flex;
-  font-size: 24px;
-  height: 500px;
   justify-content: center;
   letter-spacing: 1px;
-  line-height: 36px;
-  padding: 40px 30px 0 120px;
-  width: 50%;
+  line-height: 26px;
+  font-size: 18px;
+  padding: 60px 30px;
+  width: 100%;
   margin: 0;
+
+  ${media.md`
+    font-size: 24px;
+    line-height: 36px;
+    padding: 60px 30px 100px 120px;
+    width: 50%;
+  `}
 `;
 
 const PhotoMe = styled.img`
   width: 100%;
   height: 400px;
   object-fit: cover;
-  margin-bottom: 30px;
+
+  ${media.md`
+    margin-bottom: 30px;
+  `}
 `;
 
 const AboutMe = styled.div`
   margin: 0 auto;
-  padding: 60px;
+  padding: 30px;
   max-width: 1000px;
   letter-spacing: 1px;
 
@@ -40,9 +46,9 @@ const AboutMe = styled.div`
   }
 
   > p {
-    line-height: 25px;
+    font-size: 16px;
+    line-height: 20px;
     padding: 0 15px;
-    box-sizing: border-box;
   }
 
   > ul {
@@ -50,14 +56,29 @@ const AboutMe = styled.div`
   }
 
   li {
-    line-height: 45px;
+    line-height: 20px;
     list-style: none;
+    margin-bottom: 15px;
   }
+
+  ${media.md`
+    padding: 60px;
+
+    > p {
+      line-height: 25px;
+    }
+
+    li {
+      line-height: 45px;
+      margin-bottom: 0;
+    }
+
+  `}
 `;
 
 function Home() {
   return (
-    <HomePage>
+    <>
       <Intro>
         Hi, I&apos;m Enzo - a photographer turned software engineer based in New York City. Currently building
         beautifully designed web applications at Foursquare.
@@ -66,10 +87,10 @@ function Home() {
       <AboutMe>
         <h2>Life Finds A Way</h2>
         <p>
-          Let&apos;s begin where life began for me -- born and raised in Lima, Peru. After 11 short years, I began my
-          life in New York City. Each day I grew thicker skin and made my way through the public education system. And
-          then there was college, where life was drained out of me through homework. A thousand and one school nights
-          later I graduated. Now, I see sunshine and work as a software engineer.
+          Let&apos;s begin where life began for me -- born and raised in Lima, Peru. After 11 short years, I moved to
+          New York City. Each day I grew thicker skin and made my way through the public education system. And then
+          there was college, where life was drained out of me through homework. A thousand and one school nights later I
+          graduated. Now, I see sunshine and work as a software engineer.
         </p>
         <h2>Futbol</h2>
         <p>I love the the sport. Simple.</p>
@@ -100,7 +121,7 @@ function Home() {
           That&apos;s what I do now. Inspired by my brother who worked as a software engineer at IBM in Peru. Gracias.
         </p>
       </AboutMe>
-    </HomePage>
+    </>
   );
 }
 

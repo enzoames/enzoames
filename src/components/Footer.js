@@ -6,6 +6,7 @@ import { COLORS } from '../styles/constants';
 import github from '../styles/img/github.png';
 import instagram from '../styles/img/instagram.png';
 import linkedin from '../styles/img/linkedin.png';
+import media from '../styles/media';
 
 const Wrap = styled.div`
   align-items: center;
@@ -14,63 +15,71 @@ const Wrap = styled.div`
   color: ${COLORS.GREY3};
   display: flex;
   font-size: 14px;
+  flex-direction: column;
   height: 400px;
   justify-content: center;
   text-transform: uppercase;
   width: 100%;
-`;
 
-const Content = styled.div`
-  display: flex;
-  width: 1000px;
-  padding: 0 60px;
+  > div:first-child {
+    margin-bottom: 50px;
+  }
+
+  ${media.sm`
+    flex-direction: inherit;
+  `}
 `;
 
 const Section = styled.div`
   display: inline-block;
   position: relative;
-  width: 50%;
+  width: 60%;
 
-  div {
+  > div {
     font-weight: bold;
     margin-bottom: 30px;
   }
 
-  span {
+  > span {
     margin-top: 30px;
     font-size: 12px;
     display: block;
   }
+
+  > a {
+    margin-right: 20px;
+  }
+
+  ${media.sm`
+    width: 250px;
+  `}
 `;
 
 const Icon = styled.img`
   height: 15px;
-  margin-right: 20px;
   width: 15px;
 `;
 
 function Footer() {
   return (
     <Wrap>
-      <Content>
-        <Section>
-          <div>social</div>
-          <a href="https://www.instagram.com/enzoames/">
-            <Icon src={instagram} />
-          </a>
-          <a href="https://linkedin.com/in/enzoames/">
-            <Icon src={linkedin} />
-          </a>
-          <a href="https://github.com/enzoames">
-            <Icon src={github} />
-          </a>
-        </Section>
-        <Section>
-          <div>lets work together</div>
-          <p>eamespizarro@gmail.com</p>
-          <span>© 2019 Enzo Ames</span>
-        </Section>
-      </Content>
+      <Section>
+        <div>social</div>
+        <a href="https://www.instagram.com/enzoames/">
+          <Icon src={instagram} />
+        </a>
+        <a href="https://linkedin.com/in/enzoames/">
+          <Icon src={linkedin} />
+        </a>
+        <a href="https://github.com/enzoames">
+          <Icon src={github} />
+        </a>
+      </Section>
+      <Section>
+        <div>lets work together</div>
+        <p>eamespizarro@gmail.com</p>
+        <span>© 2019 Enzo Ames</span>
+      </Section>
     </Wrap>
   );
 }

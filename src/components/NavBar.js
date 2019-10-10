@@ -11,6 +11,7 @@ const Wrap = styled.div`
   background-color: ${COLORS.WHITE};
   width: 100%;
   position: fixed;
+  top: 0;
 
   ${media.md`
     display: flex;
@@ -69,11 +70,15 @@ const blinkAnimation = keyframes`
 const Cursor = styled.span`
   animation: ${blinkAnimation} 1s step-start infinite;
   background-color: ${COLORS.BLACK};
-  bottom: 3px;
+  bottom: 10px;
   display: ${props => (props.active ? 'inline-block' : 'none')};
   height: 1px;
   position: absolute;
   width: 10px;
+
+  ${media.md`
+    bottom: 3px;
+  `}
 `;
 
 function NavBar({ path }) {
