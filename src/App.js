@@ -3,12 +3,12 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Route, Switch } from 'react-router-dom';
-import { withRouter } from 'react-router';
 import GlobalStyle from './styles/global';
 import Home from './pages/Home';
 import Photography from './pages/Photography';
 import Resume from './pages/Resume';
 import NavBar from './components/NavBar';
+import Rsvp from './pages/Rsvp';
 import Footer from './components/Footer';
 import media from './styles/media';
 
@@ -22,16 +22,17 @@ const Wrapper = styled.div`
   `}
 `;
 
-function App(props) {
+function App() {
   return (
     <React.Fragment>
       <GlobalStyle />
-      <NavBar path={props.location.pathname || '/'} />
+      <NavBar />
       <Wrapper>
         <Switch>
           <Route path="/" component={Home} exact />
           <Route path="/photography" component={Photography} exact />
           <Route path="/resume" component={Resume} exact />
+          <Route path="/rsvp" component={Rsvp} exact />
         </Switch>
       </Wrapper>
       <Footer />
@@ -39,4 +40,4 @@ function App(props) {
   );
 }
 
-export default withRouter(App);
+export default App;

@@ -1,11 +1,23 @@
 // Copyright 2019 enzoames Inc. All Rights Reserved.
 
-import React from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import styled, { keyframes } from 'styled-components';
 import { Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
+import { withRouter } from 'react-router';
 import { COLORS } from '../styles/constants';
 import media from '../styles/media';
+
+const Transition = styled.div`
+  .active {
+    visibility: visible;
+    transition: all 200ms ease-in;
+  }
+  .hidden {
+    visibility: hidden;
+    transition: all 200ms ease-out;
+    transform: translate(0, -100%);
+  }
+`;
 
 const Wrap = styled.div`
   background-color: ${COLORS.WHITE};
@@ -81,38 +93,51 @@ const Cursor = styled.span`
   `}
 `;
 
-function NavBar({ path }) {
+function NavBar(props) {
+  const { location } = props;
+  const path = location && location.pathname ? location.pathname : '/';
+
+  const [show, setShow] = useState(true);
+  const [scrollPos, setScrollPos] = useState(0);
+
+  const handleScroll = useCallback(() => {
+    setScrollPos(document.body.getBoundingClientRect().top);
+    setShow(document.body.getBoundingClientRect().top > scrollPos);
+  }, [scrollPos]);
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [handleScroll]);
+
   return (
-    <Wrap>
-      <EnzoAmes>enzo ames</EnzoAmes>
-      <Nav>
-        <Item>
-          <Link to="/">Home</Link>
-          <Cursor active={path === '/'} />
-        </Item>
-        <Item>
-          <Link to="/photography">Photography</Link>
-          <Cursor active={path === '/photography'} />
-        </Item>
-        <Item>
-          <Link to="/resume">Resume</Link>
-          <Cursor active={path === '/resume'} />
-        </Item>
-        <Item>
-          <Link to="/rsvp">RSVP</Link>
-          <Cursor active={path === '/rsvp'} />
-        </Item>
-      </Nav>
-    </Wrap>
+    <Transition>
+      <Wrap className={show ? 'active' : 'hidden'}>
+        <EnzoAmes>enzo ames</EnzoAmes>
+        <Nav>
+          <Item>
+            <Link to="/">Home</Link>
+            <Cursor active={path === '/'} />
+          </Item>
+          <Item>
+            <Link to="/photography">Photography</Link>
+            <Cursor active={path === '/photography'} />
+          </Item>
+          <Item>
+            <Link to="/resume">Resume</Link>
+            <Cursor active={path === '/resume'} />
+          </Item>
+          <Item>
+            <Link to="/rsvp">RSVP</Link>
+            <Cursor active={path === '/rsvp'} />
+          </Item>
+        </Nav>
+      </Wrap>
+    </Transition>
   );
 }
 
-NavBar.propTypes = {
-  path: PropTypes.string.isRequired
-};
-
-NavBar.defaultProps = {
-  path: '/'
-};
-
-export default NavBar;
+export default withRouter(NavBar);
