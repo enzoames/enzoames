@@ -1,11 +1,13 @@
 // Copyright 2019 enzoames Inc. All Rights Reserved.
 
-import React, { useState, useEffect, useCallback } from 'react';
-import styled, { keyframes } from 'styled-components';
+import React from 'react';
+import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { withRouter } from 'react-router';
 import { COLORS } from '../styles/constants';
 import media from '../styles/media';
+import BlinkCursor from '../components/BlinkCursor';
+import useOnScroll from '../hooks/useOnScroll';
 
 const Transition = styled.div`
   .active {
@@ -73,45 +75,11 @@ const Item = styled.div`
   `}
 `;
 
-const blinkAnimation = keyframes`
-  50% {
-    opacity: 0;
-  }
-`;
-
-const Cursor = styled.span`
-  animation: ${blinkAnimation} 1s step-start infinite;
-  background-color: ${COLORS.BLACK};
-  bottom: 10px;
-  display: ${props => (props.active ? 'inline-block' : 'none')};
-  height: 1px;
-  position: absolute;
-  width: 10px;
-
-  ${media.md`
-    bottom: 3px;
-  `}
-`;
-
 function NavBar(props) {
   const { location } = props;
   const path = location && location.pathname ? location.pathname : '/';
 
-  const [show, setShow] = useState(true);
-  const [scrollPos, setScrollPos] = useState(0);
-
-  const handleScroll = useCallback(() => {
-    setScrollPos(document.body.getBoundingClientRect().top);
-    setShow(document.body.getBoundingClientRect().top > scrollPos);
-  }, [scrollPos]);
-
-  useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, [handleScroll]);
+  const show = useOnScroll(true);
 
   return (
     <Transition>
@@ -120,19 +88,19 @@ function NavBar(props) {
         <Nav>
           <Item>
             <Link to="/">Home</Link>
-            <Cursor active={path === '/'} />
+            <BlinkCursor active={path === '/'} />
           </Item>
           <Item>
             <Link to="/photography">Photography</Link>
-            <Cursor active={path === '/photography'} />
+            <BlinkCursor active={path === '/photography'} />
           </Item>
           <Item>
             <Link to="/resume">Resume</Link>
-            <Cursor active={path === '/resume'} />
+            <BlinkCursor active={path === '/resume'} />
           </Item>
           <Item>
             <Link to="/rsvp">RSVP</Link>
-            <Cursor active={path === '/rsvp'} />
+            <BlinkCursor active={path === '/rsvp'} />
           </Item>
         </Nav>
       </Wrap>
