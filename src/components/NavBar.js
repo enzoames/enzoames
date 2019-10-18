@@ -99,8 +99,8 @@ function NavBar(props) {
             <BlinkCursor active={path === '/resume'} />
           </Item>
           <Item>
-            <Link to="/rsvp">RSVP</Link>
-            <BlinkCursor active={path === '/rsvp'} />
+            <Link to="/events">Events</Link>
+            <BlinkCursor active={path === '/events'} />
           </Item>
         </Nav>
       </Wrap>

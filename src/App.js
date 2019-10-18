@@ -8,7 +8,7 @@ import Home from './pages/Home';
 import Photography from './pages/Photography';
 import Resume from './pages/Resume';
 import NavBar from './components/NavBar';
-import Rsvp from './pages/Rsvp';
+import Events from './pages/Events';
 import Footer from './components/Footer';
 import media from './styles/media';
 
@@ -32,7 +32,7 @@ function App() {
           <Route path="/" component={Home} exact />
           <Route path="/photography" component={Photography} exact />
           <Route path="/resume" component={Resume} exact />
-          <Route path="/rsvp" component={Rsvp} exact />
+          <Route path="/events" component={Events} exact />
         </Switch>
       </Wrapper>
       <Footer />

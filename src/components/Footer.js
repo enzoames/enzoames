@@ -22,7 +22,7 @@ const Wrap = styled.div`
   width: 100%;
 
   > div:first-child {
-    margin-bottom: 50px;
+    margin-bottom: 40px;
   }
 
   ${media.sm`
