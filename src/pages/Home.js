@@ -9,7 +9,6 @@ const Intro = styled.h1`
   align-items: center;
   display: flex;
   justify-content: center;
-  letter-spacing: 1px;
   line-height: 26px;
   font-size: 18px;
   padding: 60px 30px;
@@ -38,7 +37,6 @@ const AboutMe = styled.div`
   margin: 0 auto;
   padding: 30px;
   max-width: 1000px;
-  letter-spacing: 1px;
 
   > h2 {
     margin: 30px 0;

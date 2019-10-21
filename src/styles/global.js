@@ -11,6 +11,7 @@ const GlobalStyle = createGlobalStyle`
 
   * {
     box-sizing: border-box;
+    letter-spacing: 1px;
   }
 
   #root{
@@ -51,10 +52,14 @@ const GlobalStyle = createGlobalStyle`
     outline: 0;
   }
 
-  input[type=text] {
-    -webkit-appearance: none;
-    -moz-appearance: none;
+  input, textarea {
     appearance: none;
+    border: none;
+    border-bottom: 1px solid black;
+    
+    &:focus{
+      outline: none
+    }
   }
 `;
 

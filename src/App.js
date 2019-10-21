@@ -8,7 +8,7 @@ import Home from './pages/Home';
 import Photography from './pages/Photography';
 import Resume from './pages/Resume';
 import NavBar from './components/NavBar';
-import Events from './pages/Events';
+import Events from './pages/Events/Events';
 import Footer from './components/Footer';
 import media from './styles/media';
 
