@@ -1,16 +1,19 @@
 // Copyright 2019 enzoames Inc. All Rights Reserved.
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
-import media from '../../styles/media';
-import useSetState from '../../hooks/useSetState';
-import BlinkCursor from '../../components/BlinkCursor';
 import ENZ1 from '../../styles/img/ENZ_8172-1.jpg';
 import ENZ2 from '../../styles/img/ENZ_8177-2.jpg';
 import ENZ3 from '../../styles/img/ENZ_8179-3.jpg';
 import ENZ4 from '../../styles/img/ENZ_8182-4.jpg';
+import media from '../../styles/media';
+import useSetState from '../../hooks/useSetState';
+import BlinkCursor from '../../components/BlinkCursor';
 import validation from './validation';
 import fields from './fields';
+import api from '../../utils/api';
+import { GA_URL } from '../../utils/config';
+import Analytics from '../../utils/Analytics';
 
 const Wrap = styled.div`
   max-width: 1000px;
@@ -188,11 +191,17 @@ const Images = styled.div`
 function Events() {
   const [state, setState] = useSetState({
     ...fields,
-    event: 'rent',
+    events: null,
+    currEvent: null,
     rsvp: false,
     error: '',
     sent: false
   });
+
+  useEffect(() => {
+    Analytics.logPageView(GA_URL.EVENTS);
+    api.events().then(res => setState({ events: res, currEvent: res[0] }), err => setState({ error: err.message }));
+  }, [setState]);
 
   const handleChange = e => {
     setState({ [e.target.name]: e.target.value });
@@ -201,7 +210,7 @@ function Events() {
   const handleSubmit = e => {
     e.preventDefault();
     setState({ error: '' });
-    const errorArray = validation(state, event);
+    const errorArray = validation(state, currEvent.event);
     setState({ error: errorArray.join(', ') });
 
     if (errorArray.length === 0) {
@@ -212,7 +221,8 @@ function Events() {
   };
 
   const {
-    event,
+    events,
+    currEvent,
     rsvp,
     first,
     last,
@@ -250,7 +260,7 @@ function Events() {
             <input name="instagram" type="text" placeholder="Instagram" value={instagram} onChange={handleChange} />
             <input name="website" type="text" placeholder="Website" value={website} onChange={handleChange} />
 
-            {event === 'rent' && (
+            {currEvent.event === 'rent' && (
               <>
                 <label>
                   Date
@@ -297,37 +307,41 @@ function Events() {
       ) : (
         <>
           <EventList>
-            <Event active={event === 'rent'} onClick={() => setState({ event: 'rent' })}>
-              <img src={ENZ1} alt="inside of apartment" />
-              <h4>Book This Place!</h4>
-              <h3>Great for photography, film, and small events</h3>
-            </Event>
-            {/*
-            <Event active={event === 'party'} onClick={() => setState({ event: 'party' })}></Event>
-            <Event active={event === 'gallery'} onClick={() => setState({ event: 'gallery' })}></Event>
-            */}
+            {events ? (
+              events.map(event => (
+                <Event
+                  key={event.id}
+                  active={event.event === currEvent.event}
+                  onClick={() => setState({ currEvent: event })}
+                >
+                  <img src={ENZ1} alt="inside of apartment" />
+                  <h4>{event.cardTitle}</h4>
+                  <h3>{event.cardSubTitle}</h3>
+                </Event>
+              ))
+            ) : (
+              <h4>Loading...</h4>
+            )}
           </EventList>
-          <Rsvp type={event} onClick={() => setState({ rsvp: true })}>
-            rsvp
+          <Rsvp type={currEvent && currEvent.event} onClick={() => setState({ rsvp: true })}>
+            {currEvent ? 'rsvp' : 'Loading...'}
           </Rsvp>
         </>
       )}
       <Info>
         <Description>
           <h2>What?</h2>
-          <p>
-            This post is calling out to photographers, filmmakers and all sorts of artists that need a space to work
-          </p>
+          <p>{currEvent ? currEvent.what : 'Loading...'}</p>
           <h2>Why?</h2>
-          <p>Because this is an awesome apartment with stairs and garden space</p>
+          <p>{currEvent ? currEvent.why : 'Loading...'}</p>
           <h2>Where?</h2>
-          <p>New York, NY</p>
+          <p>{currEvent ? currEvent.where : 'Loading...'}</p>
           <h2>When?</h2>
-          <p>Ready to be booked! rsvp also to check it out for free</p>
+          <p>{currEvent ? currEvent.when : 'Loading...'}</p>
           <h2>Who?</h2>
-          <p>Entrepenuers, artists, or anyone</p>
+          <p>{currEvent ? currEvent.who : 'Loading...'}</p>
           <h2>Price</h2>
-          <p>Fair. Depending on the event</p>
+          <p>{currEvent ? currEvent.price : 'Loading...'}</p>
         </Description>
         <Images>
           <img src={ENZ1} alt="inside of apartment" />

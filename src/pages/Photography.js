@@ -1,12 +1,14 @@
 // Copyright 2019 enzoames Inc. All Rights Reserved.
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import media from '../styles/media';
 import BlinkCursor from '../components/BlinkCursor';
 import useOnScroll from '../hooks/useOnScroll';
 import { COLORS } from '../styles/constants';
-import Albums from '../utils/Albums';
+import albums from '../utils/albums';
+import { GA_URL } from '../utils/config';
+import Analytics from '../utils/Analytics';
 
 const PhotographyPage = styled.div`
   max-width: 1000px;
@@ -99,6 +101,11 @@ const Photo = styled.img`
 function Photography() {
   const [album, setAlbum] = useState('world');
   const show = useOnScroll(true);
+
+  useEffect(() => {
+    Analytics.logPageView(GA_URL.PHOTOGRAPHY);
+  }, []);
+
   const handleClick = name => {
     setAlbum(name);
   };
@@ -106,11 +113,11 @@ function Photography() {
   const renderGallery = () => {
     switch (album) {
       case 'nyc':
-        return Albums.nyc.map(photo => <Photo key={photo} src={photo} />);
+        return albums.nyc.map(photo => <Photo key={photo} src={photo} />);
       case 'world':
-        return Albums.world.map(photo => <Photo key={photo} src={photo} />);
+        return albums.world.map(photo => <Photo key={photo} src={photo} />);
       case 'people':
-        return Albums.people.map(photo => <Photo key={photo} src={photo} />);
+        return albums.people.map(photo => <Photo key={photo} src={photo} />);
       default:
         return 'NO PHOTOS';
     }

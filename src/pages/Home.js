@@ -1,9 +1,11 @@
 // Copyright 2019 enzoames Inc. All Rights Reserved.
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import ENZ from '../styles/img/ENZ_4262-1.jpg';
 import media from '../styles/media';
+import { GA_URL } from '../utils/config';
+import Analytics from '../utils/Analytics';
 
 const Intro = styled.h1`
   align-items: center;
@@ -75,6 +77,10 @@ const AboutMe = styled.div`
 `;
 
 function Home() {
+  useEffect(() => {
+    Analytics.logPageView(GA_URL.HOME);
+  }, []);
+
   return (
     <>
       <Intro>
