@@ -16,7 +16,7 @@ const Job = styled.div`
 
 function Resume() {
   useEffect(() => {
-    Analytics.logPageView(GA_URL.RESUME);
+    Analytics.logPageImpression(GA_URL.RESUME);
   }, []);
 
   return (

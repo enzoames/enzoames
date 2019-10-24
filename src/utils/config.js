@@ -6,13 +6,33 @@
 
 export const GA_ID = 'UA-150715362-1';
 
+// URLS
+
+export const GA_URL = {
+  HOME: 'home',
+  PHOTOGRAPHY: 'photography',
+  RESUME: 'resume',
+  EVENTS: 'events'
+};
+
+// EVENT CATEGORY
+
+export const GA_CAT = {
+  NAV: 'nav',
+  HOME: 'home',
+  PHOTOGRAPHY: 'photography',
+  RESUME: 'resume',
+  EVENTS: 'events',
+  FOOTER: 'footer'
+};
+
 // Event Action
 
 export const GA_EA = {
   CLICKED: 'clicked',
-  SELECTED: 'selected',
   INTERACTED: 'interacted',
-  SUBMITTED: 'submitted'
+  SUBMITTED: 'submitted',
+  IMPRESSION: 'impression'
 };
 
 // Event Label
@@ -25,25 +45,15 @@ export const GA_EL = {
 
   ALBUM_WORLD: 'album-world',
   ALBUM_NYC: 'album-nyc',
-  ALBUM_people: 'album-people',
+  ALBUM_PEOPLE: 'album-people',
 
   EVENT_CARD: 'event-card',
-  BUTTON_RSVP: 'rsvp-button',
   EVENTS_BREADCRUM: 'events-breadcrum',
-  FORM: 'form'
-};
 
-export const GA_CAT = {
-  NAV: 'nav',
-  HOME: 'home',
-  PHOTOGRAPHY: 'photography',
-  RESUME: 'resume',
-  EVENTS: 'events'
-};
+  SUBMIT_BUTTON: 'submit-button',
+  RSVP_BUTTON: 'rsvp-button',
 
-export const GA_URL = {
-  HOME: 'ENZOAMES::HOME',
-  PHOTOGRAPHY: 'ENZOAMES::PHOTOGRAPHY',
-  RESUME: 'ENZOAMES::RESUME',
-  EVENTS: 'ENZOAMES::EVENTS'
+  FORM: 'form',
+  PAGE: 'page',
+  ICON: 'icon'
 };

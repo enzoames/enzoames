@@ -12,7 +12,7 @@ import BlinkCursor from '../../components/BlinkCursor';
 import validation from './validation';
 import fields from './fields';
 import api from '../../utils/api';
-import { GA_URL } from '../../utils/config';
+import { GA_URL, GA_CAT, GA_EL } from '../../utils/config';
 import Analytics from '../../utils/Analytics';
 
 const Wrap = styled.div`
@@ -195,16 +195,36 @@ function Events() {
     currEvent: null,
     rsvp: false,
     error: '',
-    sent: false
+    sent: false,
+    formInteraction: 0
   });
 
   useEffect(() => {
-    Analytics.logPageView(GA_URL.EVENTS);
+    Analytics.logPageImpression(GA_URL.EVENTS);
     api.events().then(res => setState({ events: res, currEvent: res[0] }), err => setState({ error: err.message }));
   }, [setState]);
 
+  const handleBack = () => {
+    setState({ rsvp: false, sent: false });
+    Analytics.logEventsBreadcrum();
+  };
+
+  const handleRsvp = () => {
+    setState({ rsvp: true });
+    Analytics.logButtonClick(GA_CAT.EVENTS, GA_EL.RSVP_BUTTON);
+  };
+
   const handleChange = e => {
-    setState({ [e.target.name]: e.target.value });
+    if (state.formInteraction === 15) {
+      Analytics.logFormInteraction(GA_CAT.EVENTS);
+    }
+    const formInteraction = state.formInteraction + 1;
+    setState({ [e.target.name]: e.target.value, formInteraction });
+  };
+
+  const handleClickEvent = event => {
+    setState({ currEvent: event });
+    Analytics.logClickEvent(event.event);
   };
 
   const handleSubmit = e => {
@@ -215,6 +235,7 @@ function Events() {
 
     if (errorArray.length === 0) {
       // TODO: Post to Dynamo DB
+      Analytics.logButtonSubmit(GA_CAT.EVENTS, GA_EL.SUBMIT_BUTTON);
       console.log('state', state);
       setState({ sent: true, ...fields });
     }
@@ -243,7 +264,7 @@ function Events() {
   return (
     <Wrap>
       <BreadCrums>
-        <div onClick={() => setState({ rsvp: false, sent: false })}>Upcoming Events</div> {rsvp && '/ Rsvp'}
+        <div onClick={handleBack}>Upcoming Events</div> {rsvp && '/ Rsvp'}
         <BlinkCursor active />
       </BreadCrums>
       {rsvp ? (
@@ -309,11 +330,7 @@ function Events() {
           <EventList>
             {events ? (
               events.map(event => (
-                <Event
-                  key={event.id}
-                  active={event.event === currEvent.event}
-                  onClick={() => setState({ currEvent: event })}
-                >
+                <Event key={event.id} active={event.event === currEvent.event} onClick={() => handleClickEvent(event)}>
                   <img src={ENZ1} alt="inside of apartment" />
                   <h4>{event.cardTitle}</h4>
                   <h3>{event.cardSubTitle}</h3>
@@ -323,7 +340,7 @@ function Events() {
               <h4>Loading...</h4>
             )}
           </EventList>
-          <Rsvp type={currEvent && currEvent.event} onClick={() => setState({ rsvp: true })}>
+          <Rsvp type={currEvent && currEvent.event} onClick={handleRsvp}>
             {currEvent ? 'rsvp' : 'Loading...'}
           </Rsvp>
         </>

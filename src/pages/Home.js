@@ -78,7 +78,7 @@ const AboutMe = styled.div`
 
 function Home() {
   useEffect(() => {
-    Analytics.logPageView(GA_URL.HOME);
+    Analytics.logPageImpression(GA_URL.HOME);
   }, []);
 
   return (

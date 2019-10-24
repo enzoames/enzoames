@@ -7,6 +7,8 @@ import github from '../styles/img/github.png';
 import instagram from '../styles/img/instagram.png';
 import linkedin from '../styles/img/linkedin.png';
 import media from '../styles/media';
+import { GA_CAT } from '../utils/config';
+import Analytics from '../utils/Analytics';
 
 const Wrap = styled.div`
   align-items: center;
@@ -61,17 +63,21 @@ const Icon = styled.img`
 `;
 
 function Footer() {
+  const handleClick = value => {
+    Analytics.logClickIcon(GA_CAT.FOOTER, value);
+  };
+
   return (
     <Wrap>
       <Section>
         <div>social</div>
-        <a href="https://www.instagram.com/enzoames/">
+        <a onClick={() => handleClick('instagram')} href="https://www.instagram.com/enzoames/">
           <Icon src={instagram} />
         </a>
-        <a href="https://linkedin.com/in/enzoames/">
+        <a onClick={() => handleClick('linkedin')} href="https://linkedin.com/in/enzoames/">
           <Icon src={linkedin} />
         </a>
-        <a href="https://github.com/enzoames">
+        <a onClick={() => handleClick('github')} href="https://github.com/enzoames">
           <Icon src={github} />
         </a>
       </Section>
