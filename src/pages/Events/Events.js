@@ -1,7 +1,7 @@
 // Copyright 2019 enzoames Inc. All Rights Reserved.
 
 import React, { useEffect } from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import ENZ1 from '../../styles/img/ENZ_8172-1.jpg';
 import ENZ2 from '../../styles/img/ENZ_8177-2.jpg';
 import ENZ3 from '../../styles/img/ENZ_8179-3.jpg';
@@ -13,6 +13,7 @@ import validation from './validation';
 import fields from './fields';
 import api from '../../utils/api';
 import { GA_URL, GA_CAT, GA_EL } from '../../utils/config';
+import removeEmptyStrings from './removeEmptyStrings';
 import Analytics from '../../utils/Analytics';
 
 const Wrap = styled.div`
@@ -30,6 +31,10 @@ const BreadCrums = styled.h2`
     display: inline-block;
     cursor: pointer;
   }
+
+  span {
+    bottom: 3px;
+  }
 `;
 
 const EventList = styled.div`
@@ -45,13 +50,17 @@ const EventList = styled.div`
 
 const Event = styled.div`
   width: 300px;
-  min-width: 300px;
+  min-width: 260px;
   display: inline-block;
   height: 300px;
   margin: 0 20px 30px 0;
   box-shadow: ${props => (props.active ? '0 0 3.5px rgba(0, 0, 0, 0.5);' : 'none')};
   cursor: pointer;
   position: relative;
+
+  ${media.xxs`
+    min-width: 300px
+  `}
 
   &:before {
     content: '';
@@ -94,11 +103,16 @@ const Rsvp = styled.div`
   border-radius: 7px;
   cursor: pointer;
   margin-bottom: 30px;
+  background-color: white;
 
-  &:hover {
-    background-color: black;
-    color: white;
-  }
+  ${props =>
+    !props.disabled &&
+    css`
+      &:hover {
+        background-color: black;
+        color: white;
+      }
+    `}
 
   ${media.md`
     margin-left: ${props => {
@@ -117,12 +131,20 @@ const Rsvp = styled.div`
 `;
 
 const Info = styled.div`
-  display: flex;
+  display: block;
+
+  ${media.sm`
+    display: flex;
+  `}
 `;
 
 const Description = styled.div`
-  width: 50%;
-  padding-right: 30px;
+  width: 100%;
+
+  ${media.sm`
+    width: 50%;
+    padding-right: 30px;  
+  `}
 
   > h2:first-child {
     margin-top: 0;
@@ -136,6 +158,22 @@ const Description = styled.div`
   > p {
     font-size: 16px;
     line-height: 20px;
+  }
+`;
+
+const Images = styled.div`
+  width: 100%;
+
+  ${media.sm`
+    width: 50%;
+    padding-right: 30px;  
+  `}
+
+  > img {
+    width: 100%;
+    min-height: 200px;
+    height: 250px;
+    object-fit: cover;
   }
 `;
 
@@ -177,27 +215,18 @@ const Error = styled.div`
   margin-bottom: 30px;
 `;
 
-const Images = styled.div`
-  width: 50%;
-
-  > img {
-    width: 100%;
-    min-height: 200px;
-    height: 250px;
-    object-fit: cover;
-  }
-`;
-
 function Events() {
   const [state, setState] = useSetState({
-    ...fields,
     events: null,
     currEvent: null,
     rsvp: false,
     error: '',
     sent: false,
-    formInteraction: 0
+    formInteraction: 0,
+    posting: false
   });
+
+  const [formFields, setFormFields] = useSetState(fields);
 
   useEffect(() => {
     Analytics.logPageImpression(GA_URL.EVENTS);
@@ -219,7 +248,8 @@ function Events() {
       Analytics.logFormInteraction(GA_CAT.EVENTS);
     }
     const formInteraction = state.formInteraction + 1;
-    setState({ [e.target.name]: e.target.value, formInteraction });
+    setState({ formInteraction });
+    setFormFields({ [e.target.name]: e.target.value });
   };
 
   const handleClickEvent = event => {
@@ -229,22 +259,27 @@ function Events() {
 
   const handleSubmit = e => {
     e.preventDefault();
-    setState({ error: '' });
-    const errorArray = validation(state, currEvent.event);
+    setState({ error: '', posting: true });
+    const errorArray = validation(formFields, currEvent.event);
     setState({ error: errorArray.join(', ') });
 
     if (errorArray.length === 0) {
-      // TODO: Post to Dynamo DB
       Analytics.logButtonSubmit(GA_CAT.EVENTS, GA_EL.SUBMIT_BUTTON);
-      console.log('state', state);
-      setState({ sent: true, ...fields });
+      const form = { ...formFields };
+      form['event'] = currEvent;
+      api.postRsvp(removeEmptyStrings(form)).then(res => {
+        if (res.status >= 200 && res.status < 400) {
+          setState({ sent: true, posting: false });
+          setFormFields(fields);
+        } else {
+          setState({ error: res.error });
+        }
+      });
     }
   };
 
+  const { events, currEvent, rsvp, error, sent, posting } = state;
   const {
-    events,
-    currEvent,
-    rsvp,
     first,
     last,
     email,
@@ -256,16 +291,16 @@ function Events() {
     timeStart,
     timeEnd,
     purpose,
-    additionalInfo,
-    error,
-    sent
-  } = state;
+    additionalInfo
+  } = formFields;
 
   return (
     <Wrap>
       <BreadCrums>
-        <div onClick={handleBack}>Upcoming Events</div> {rsvp && '/ Rsvp'}
-        <BlinkCursor active />
+        <div onClick={handleBack}>
+          Upcoming Events {rsvp && '/ Rsvp'}
+          <BlinkCursor active />
+        </div>
       </BreadCrums>
       {rsvp ? (
         sent ? (
@@ -320,8 +355,8 @@ function Events() {
               onChange={handleChange}
             />
             {error && <Error>{error}</Error>}
-            <Rsvp as="button" type="submit">
-              submit
+            <Rsvp as="button" type="submit" disabled={posting}>
+              {posting ? 'loading...' : 'submit'}
             </Rsvp>
           </Form>
         )

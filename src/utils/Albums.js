@@ -45,7 +45,7 @@ export default {
     ],
     people: [
         'https://s3.amazonaws.com/enzoames.com/photos/people/ENZ_0816-1.jpg',
-        'https://s3.amazonaws.com/enzoames.com/photos/people/ENZ_2238-1.JPG',
+        // 'https://s3.amazonaws.com/enzoames.com/photos/people/ENZ_2238-1.JPG',
         'https://s3.amazonaws.com/enzoames.com/photos/people/ENZ_2569-1.jpg',
         'https://s3.amazonaws.com/enzoames.com/photos/people/ENZ_3378-1.jpg',
         'https://s3.amazonaws.com/enzoames.com/photos/people/ENZ_3590-1.jpg',
@@ -63,7 +63,7 @@ export default {
         'https://s3.amazonaws.com/enzoames.com/photos/people/ENZ_5475-5.jpg',
         'https://s3.amazonaws.com/enzoames.com/photos/people/ENZ_6613-1.jpg',
         'https://s3.amazonaws.com/enzoames.com/photos/people/ENZ_7558-1.jpg',
-        'https://s3.amazonaws.com/enzoames.com/photos/people/ENZ_9792-1.jpg',
+        // 'https://s3.amazonaws.com/enzoames.com/photos/people/ENZ_9792-1.jpg',
         'https://s3.amazonaws.com/enzoames.com/photos/people/ENZ_1852-1.jpg',
         'https://s3.amazonaws.com/enzoames.com/photos/people/ENZ_2554-1.jpg',
         'https://s3.amazonaws.com/enzoames.com/photos/people/ENZ_3194-1.jpg',
@@ -71,7 +71,7 @@ export default {
         'https://s3.amazonaws.com/enzoames.com/photos/people/ENZ_3959-1.jpg',
         'https://s3.amazonaws.com/enzoames.com/photos/people/ENZ_4337-1.jpg',
         'https://s3.amazonaws.com/enzoames.com/photos/people/ENZ_6471-1.jpg',
-        'https://s3.amazonaws.com/enzoames.com/photos/people/ENZ_6749-1.jpg',
+        // 'https://s3.amazonaws.com/enzoames.com/photos/people/ENZ_6749-1.jpg',
         'https://s3.amazonaws.com/enzoames.com/photos/people/ENZ_7715-1.jpg'
     ]
 };

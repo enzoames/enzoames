@@ -20,7 +20,7 @@ const BlinkCursor = styled.span`
   width: 10px;
 
   ${media.md`
-    bottom: 3px;
+    bottom: 5px;
   `}
 `;
 

@@ -18,7 +18,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "setup-deploy": "brew install awscli; aws configure",
-    "deploy": "npm run build && node ./scripts/awsDeploy.js"
+    "deploy": "npm run build && node ./backend/awsDeploy.js"
   },
   "eslintConfig": {
     "extends": "react-app"
