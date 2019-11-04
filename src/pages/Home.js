@@ -91,39 +91,43 @@ function Home() {
       <AboutMe>
         <h2>Life Finds A Way</h2>
         <p>
-          Let&apos;s begin where life began for me -- born and raised in Lima, Peru. After 11 short years, I moved to
-          New York City. Each day I grew thicker skin and made my way through the public education system. And then
-          there was college, where life was drained out of me through homework. A thousand and one school nights later I
-          graduated. Now, I see sunshine and work as a software engineer.
+          Let&apos;s begin where life began for me - born and raised in Lima, Peru. After 11 short years, I moved to New
+          York City. Each day I grew a thicker skin and made my way through the public education system. Now, I see
+          sunshine and work as a software engineer.
         </p>
-        <h2>Futbol</h2>
+        <h2>Fútbol</h2>
         <p>I love the the sport. Simple.</p>
         <h2>Quotes</h2>
-        <p>I love good quotes. Here are some I like, love, and live to.</p>
+        <p>I love good quotes. Here are some I like, love, and live by.</p>
         <ul>
-          <li>Who are you when no one is watching?</li>
-          <li>Experience is the name we give to our mistakes</li>
-          <li>A system cannot fail those it was never designed to protect</li>
-          <li>You are an average of the five people you most spend your time with, choose wisely</li>
-          <li>Teach me how to be harder than life and kinder than love</li>
-          <li>Management is doing things right. Leadership is doing the right things</li>
-          <li>Your future self is talking sh*t about you</li>
-          <li>Why does Socrates never cries and Jesus never laughs</li>
-          <li>There is no courage without the precense of fear</li>
-          <li>Let&apos;s make man kind</li>
+          <li>
+            <i>Who are you when no one is watching?</i>
+          </li>
+          <li>
+            <i>Experience is the name we give to our mistakes</i>
+          </li>
+          <li>
+            <i>You are an average of the five people you most spend your time with, choose wisely</i>
+          </li>
+          <li>
+            <i>Teach me how to be harder than life and kinder than love</i>
+          </li>
+          <li>
+            <i>Management is doing things right. Leadership is doing the right thing</i>
+          </li>
+          <li>
+            <i>There is no courage without the presence of fear</i>
+          </li>
         </ul>
         <h2>Photography</h2>
-        <p>I love Photography -- good looking people, beautiful landscapes, fruits on a table, motion, and street.</p>
+        <p>I love photography - good looking people, beautiful landscapes, fruits on a table, motion, and street.</p>
         <h2>Inspiration</h2>
         <p>
-          My inspiration is driven from books, but primarily from the people around me. I wouldn&apos;t be where I am
-          today if it wasn&apos;t for the people that have granted a helping hand to pull me forward. From my family and
-          handful of close friends, to the incredible collegues at the places that I have worked. Thank you to you all.
+          My inspiration is primarily driven from books and the people around me - my family, a handful of close
+          friends, and the incredible collegues at the places that I have worked. Thank you all.
         </p>
         <h2>Software Engineering</h2>
-        <p>
-          That&apos;s what I do now. Inspired by my brother who worked as a software engineer at IBM in Peru. Gracias.
-        </p>
+        <p>A career inspired by my brother who worked as a software engineer at IBM in Peru. Gracias.</p>
       </AboutMe>
     </>
   );
