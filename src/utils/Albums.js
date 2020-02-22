@@ -44,7 +44,7 @@ export default {
         'https://s3.amazonaws.com/enzoames.com/photos/world/ENZ_8418.jpg'
     ],
     people: [
-        'https://s3.amazonaws.com/enzoames.com/photos/people/ENZ_0816-1.jpg',
+        // 'https://s3.amazonaws.com/enzoames.com/photos/people/ENZ_0816-1.jpg',
         // 'https://s3.amazonaws.com/enzoames.com/photos/people/ENZ_2238-1.JPG',
         'https://s3.amazonaws.com/enzoames.com/photos/people/ENZ_2569-1.jpg',
         'https://s3.amazonaws.com/enzoames.com/photos/people/ENZ_3378-1.jpg',

@@ -2,7 +2,7 @@
 
 import React, { useEffect } from 'react';
 import styled from 'styled-components';
-import ENZ from '../styles/img/ENZ_4262-1.jpg';
+import ENZ from '../styles/img/ENZ_0884.jpg';
 import media from '../styles/media';
 import { GA_URL } from '../utils/config';
 import Analytics from '../utils/Analytics';
@@ -29,9 +29,20 @@ const PhotoMe = styled.img`
   width: 100%;
   height: 400px;
   object-fit: cover;
+  object-position: 85% 30px;
+
+  ${media.xxs`
+    object-position: 89% 30px;    
+  `}
 
   ${media.md`
     margin-bottom: 30px;
+    object-position: 0px -10px;
+  `}
+
+  ${media.lg`
+    margin-bottom: 30px;
+    object-position: 0px -40px;
   `}
 `;
 

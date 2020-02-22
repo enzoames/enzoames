@@ -55,5 +55,7 @@ export const GA_EL = {
 
   FORM: 'form',
   PAGE: 'page',
-  ICON: 'icon'
+  ICON: 'icon',
+
+  READ_MORE: 'read-more'
 };

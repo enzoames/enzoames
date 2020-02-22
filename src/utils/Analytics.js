@@ -46,6 +46,12 @@ class AnalyticsClass {
     this.logEvent(GA_CAT.EVENTS, GA_EA.CLICKED, GA_EL.EVENT_CARD, eventValue);
   }
 
+  // RESUME PAGE
+
+  logClickReadMore(category, eventLabel) {
+    this.logEvent(category, GA_EA.CLICKED, eventLabel);
+  }
+
   // FOOTER
 
   logClickIcon(eventCategory, eventLabel) {

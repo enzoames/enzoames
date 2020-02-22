@@ -82,9 +82,9 @@ function Footer() {
         </a>
       </Section>
       <Section>
-        <div>lets work together</div>
+        <div>let&apos;s work together</div>
         <p>eamespizarro@gmail.com</p>
-        <span>© 2019 Enzo Ames</span>
+        <span>© {new Date().getFullYear()} Enzo Ames</span>
       </Section>
     </Wrap>
   );

@@ -111,12 +111,12 @@ function NavBar(props) {
             </Link>
             <BlinkCursor active={path === '/resume'} />
           </Item>
-          <Item>
+          {/*<Item>
             <Link onClick={() => handleLog(GA_EL.NAV_EVENTS)} to="/events">
               Events
             </Link>
             <BlinkCursor active={path === '/events'} />
-          </Item>
+          </Item>*/}
         </Nav>
       </Wrap>
     </Transition>
