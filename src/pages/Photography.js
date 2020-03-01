@@ -115,11 +115,32 @@ function Photography() {
   const renderGallery = () => {
     switch (album) {
       case 'nyc':
-        return albums.nyc.map(photo => <Photo key={photo} src={photo} />);
+        return albums.nyc.map((photo, index) => (
+          <Photo
+            key={photo}
+            src={photo}
+            alt={`Enzo Ames Photography - NYC - ${index + 1}`}
+            title={`Enzo Ames Photography - NYC - ${index + 1}`}
+          />
+        ));
       case 'world':
-        return albums.world.map(photo => <Photo key={photo} src={photo} />);
+        return albums.world.map((photo, index) => (
+          <Photo
+            key={photo}
+            src={photo}
+            alt={`Enzo Ames Photography - World - ${index + 1}`}
+            title={`Enzo Ames Photography - World - ${index + 1}`}
+          />
+        ));
       case 'people':
-        return albums.people.map(photo => <Photo key={photo} src={photo} />);
+        return albums.people.map((photo, index) => (
+          <Photo
+            key={photo}
+            src={photo}
+            alt={`Enzo Ames Photography - People - ${index + 1}`}
+            title={`Enzo Ames Photography - People - ${index + 1}`}
+          />
+        ));
       default:
         return 'NO PHOTOS';
     }

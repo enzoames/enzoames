@@ -98,7 +98,7 @@ function Home() {
         Hi, I&apos;m Enzo - a photographer turned software engineer based in New York City. Currently building
         beautifully designed web applications at Foursquare.
       </Intro>
-      <PhotoMe src={ENZ} />
+      <PhotoMe src={ENZ} alt="Enzo Ames photo profile headshot" title="Enzo Ames photo profile headshot" />
       <AboutMe>
         <h2>Life Finds A Way</h2>
         <p>
