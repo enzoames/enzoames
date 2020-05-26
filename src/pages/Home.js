@@ -107,7 +107,7 @@ function Home() {
           sunshine and work as a software engineer.
         </p>
         <h2>Fútbol</h2>
-        <p>I love the the sport. Simple.</p>
+        <p>I love the sport. Simple.</p>
         <h2>Quotes</h2>
         <p>I love good quotes. Here are some I like, love, and live by.</p>
         <ul>
