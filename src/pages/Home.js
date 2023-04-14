@@ -88,8 +88,8 @@ function Home() {
   return (
     <>
       <Intro>
-        Hi, I&apos;m Enzo - a photographer turned software engineer based in New York City.
-        Currently building beautifully designed web applications at Foursquare.
+        Hi, I&apos;m Enzo - software engineer, stock trader, and photographer. Currently working at
+        Foursquare.
       </Intro>
       <PhotoMe
         src={ENZ}
@@ -97,30 +97,38 @@ function Home() {
         title="Enzo Ames photo profile headshot"
       />
       <AboutMe>
-        <h2>Life Finds A Way</h2>
-        <p>
-          Let&apos;s begin where life began for me - born and raised in Lima, Peru. After 11 short
-          years, I moved to New York City. Each day I grew a thicker skin and made my way through
-          the public education system. Now, I see sunshine and work as a software engineer.
-        </p>
-        <h2>Fútbol</h2>
-        <p>I love the sport. Simple.</p>
-        <h2>Quotes</h2>
-        <p>I love good quotes. Here are some I like, love, and live by.</p>
+        <h2>Mission Statement</h2>
+        <p>The paradigm/principles I live by.</p>
         <ul>
           <li>
-            <i>Who are you when no one is watching?</i>
+            <i>Never compromise with honesty</i>
           </li>
           <li>
-            <i>Experience is the name we give to our mistakes</i>
+            <i>Take accountability</i>
           </li>
           <li>
-            <i>
-              You are an average of the five people you most spend your time with, choose wisely
-            </i>
+            <i>Provide clear expectations</i>
           </li>
           <li>
-            <i>Teach me how to be harder than life and kinder than love</i>
+            <i>No one owes you anything</i>
+          </li>
+          <li>
+            <i>Show respect</i>
+          </li>
+          <li>
+            <i>Listen twice as much as you speak</i>
+          </li>
+          <li>
+            <i>There is only one truth and it&apos;s objective</i>
+          </li>
+          <li>
+            <i>Maintain mental clarity during difficult times</i>
+          </li>
+          <li>
+            <i>Your room is a reflection of your mind</i>
+          </li>
+          <li>
+            <i>Growth requires ignorance</i>
           </li>
           <li>
             <i>Management is doing things right. Leadership is doing the right thing</i>
@@ -128,21 +136,64 @@ function Home() {
           <li>
             <i>There is no courage without the presence of fear</i>
           </li>
+          <li>
+            <i>Be a mentor</i>
+          </li>
+          <li>
+            <i>Be in complete control of your breathing</i>
+          </li>
+          <li>
+            <i>Never compromise with health</i>
+          </li>
+          <li>
+            <i>Remain in great physical shape</i>
+          </li>
+          <li>
+            <i>It&apos;s better to be a warrior in a garden than a gardener at war</i>
+          </li>
+          <li>
+            <i>Pessimists sound smart but optimists make money</i>
+          </li>
+          <li>
+            <i>Create wealth</i>
+          </li>
+          <li>
+            <i>Make money work for you</i>
+          </li>
+          <li>
+            <i>Maintain financial freedom</i>
+          </li>
+          <li>
+            <i>Time together as a family is a gift</i>
+          </li>
+          <li>
+            <i>Remain brave and young for the years to come</i>
+          </li>
         </ul>
-        <h2>Photography</h2>
-        <p>
-          I love photography - good looking people, beautiful landscapes, fruits on a table, motion,
-          and street.
-        </p>
         <h2>Inspiration</h2>
         <p>
           My inspiration is primarily driven from books and the people around me - my family, a
-          handful of close friends, and the incredible collegues at the places that I have worked.
-          Thank you all.
+          handful of close friends and incredible collegues. Thank you all.
         </p>
         <h2>Software Engineering</h2>
         <p>
           A career inspired by my brother who worked as a software engineer at IBM in Peru. Gracias.
+        </p>
+        <h2>Stock Trading</h2>
+        <p>Gamblers focus on profits, day traders focus on mitigating risk.</p>
+        <h2>Real Estate</h2>
+        <p>The next step on my journey.</p>
+        <h2>Martial Arts</h2>
+        <p>
+          A harmless man is not a good man. A good man is a very dangerous man who has it under
+          voluntary control.
+        </p>
+        <h2>Fútbol</h2>
+        <p>I love the sport. Simple.</p>
+        <h2>Photography</h2>
+        <p>
+          I love photography - good looking people, beautiful landscapes, fruits on a table, motion,
+          and street.
         </p>
       </AboutMe>
     </>
