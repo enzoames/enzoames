@@ -10,16 +10,11 @@ import Resume from './pages/Resume';
 import NavBar from './components/NavBar';
 // import Events from './pages/Events/Events';
 import Footer from './components/Footer';
-import media from './styles/media';
 
 const Wrapper = styled.div`
-  max-width: 2000px;
+  max-width: 1000px;
   margin: 0 auto;
-  padding-top: 120px;
-
-  ${media.md`
-    padding-top: 80px;
-  `}
+  padding: 0 16px;
 `;
 
 function App() {

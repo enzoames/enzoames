@@ -10,35 +10,16 @@ import albums from '../utils/albums';
 import { GA_URL, GA_EL } from '../utils/config';
 import Analytics from '../utils/Analytics';
 
-const PhotographyPage = styled.div`
-  max-width: 1000px;
-  display: flex;
-  margin: 0 auto;
-`;
-
-const AlbumList = styled.div`
-  background-color: ${COLORS.WHITE};
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  position: fixed;
-
-  ${media.md`
-    display: block;
-    padding: 30px;
-    width: 200px;
-    position: fixed;
-  `}
-`;
-
 const Transition = styled.div`
+  position: relative;
+  margin-top: 80px;
+
   .down {
     transition: all 200ms ease-in;
   }
   .up {
     transition: all 200ms ease-out;
-    transform: translate(0, -167%);
+    transform: translate(0, -80px);
   }
 
   ${media.md`
@@ -52,18 +33,36 @@ const Transition = styled.div`
   `}
 `;
 
+const AlbumList = styled.div`
+  background-color: ${COLORS.WHITE};
+  height: 80px;
+  width: 100%;
+  padding: 0 0 0 32px;
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  position: fixed;
+  top: 80px;
+  left: 0;
+
+  ${media.md`
+    display: block;
+    padding: 32px 0 0 0;
+    width: 200px;
+    position: fixed;
+    left: unset;
+    top: unset;
+  `}
+`;
+
 const Album = styled.div`
   font-size: 14px;
   position: relative;
-  width: 50%;
-  padding: 10px;
   cursor: pointer;
-  text-align: center;
 
   ${media.md`
     padding: 0;
     margin-bottom: 15px;
-    text-align: left;
   `}
 `;
 
@@ -147,7 +146,7 @@ function Photography() {
   };
 
   return (
-    <PhotographyPage>
+    <>
       <Transition>
         <AlbumList className={show ? 'down' : 'up'}>
           <Album onClick={() => handleClick('world', GA_EL.ALBUM_WORLD)}>
@@ -165,7 +164,7 @@ function Photography() {
         </AlbumList>
       </Transition>
       <Gallery>{renderGallery()}</Gallery>
-    </PhotographyPage>
+    </>
   );
 }
 

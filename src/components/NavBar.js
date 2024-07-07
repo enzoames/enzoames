@@ -12,70 +12,72 @@ import { GA_EL } from '../utils/config';
 import Analytics from '../utils/Analytics';
 
 const Transition = styled.div`
-  .active {
+  background-color: ${COLORS.WHITE};
+  height: 80px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+
+  &.active {
     visibility: visible;
     transition: all 200ms ease-in;
   }
-  .hidden {
+  &.hidden {
     visibility: hidden;
     transition: all 200ms ease-out;
     transform: translate(0, -100%);
   }
 `;
 
-const Wrap = styled.div`
-  background-color: ${COLORS.WHITE};
-  width: 100%;
-  position: fixed;
-  top: 0;
-  z-index: 1;
+const Wrapper = styled.div`
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px 16px 0 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 
   ${media.md`
-    display: flex;
+    padding: 0 16px;
+    flex-direction: row;
+    gap: unset;
   `}
 `;
 
 const EnzoAmes = styled.h1`
-  font-size: 18px;
+  font-size: 24px;
+  line-height: 28px;
   letter-spacing: 2px;
-  padding: 15px;
-  margin: 0;
   text-transform: uppercase;
-  text-align: center;
-  width: 100%;
+  margin: 0;
+  display: flex;
+  align-items: center;
 
   ${media.md`
-    padding: 30px 0;  
-    width: 400px;
+    min-width: fit-content;
   `}
 `;
 
 const Nav = styled.div`
   width: 100%;
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  gap: 24px;
+  padding: 0 0 0 16px;
 
   ${media.md`
+    width: 600px;
     margin: 0 auto;
-    padding: 30px;
-    width: 800px;
+    padding: 32px;
+    gap: 64px;
   `}
 `;
 
-const NAV_ITEMS = 4;
-
 const Item = styled.div`
-  font-size: 14px;
   position: relative;
-  text-align: center;
-  width: 50%;
-  padding: 10px;
-
-  ${media.md`
-    padding: 0;
-    width: calc(100% / ${NAV_ITEMS});
-  `}
+  font-size: 14px;
+  line-height: 16px;
 `;
 
 function NavBar(props) {
@@ -84,14 +86,18 @@ function NavBar(props) {
 
   const show = useOnScroll(true);
 
-  const handleLog = useCallback(label => {
+  const handleLog = useCallback((label) => {
     Analytics.logNavClick(label);
   }, []);
 
   return (
-    <Transition>
-      <Wrap className={show ? 'active' : 'hidden'}>
-        <EnzoAmes>enzo ames</EnzoAmes>
+    <Transition className={show ? 'active' : 'hidden'}>
+      <Wrapper>
+        <EnzoAmes>
+          <Link onClick={() => handleLog(GA_EL.NAV_HOME)} to="/">
+            enzo ames
+          </Link>
+        </EnzoAmes>
         <Nav>
           <Item>
             <Link onClick={() => handleLog(GA_EL.NAV_HOME)} to="/">
@@ -100,7 +106,10 @@ function NavBar(props) {
             <BlinkCursor active={path === '/'} />
           </Item>
           <Item>
-            <Link onClick={() => handleLog(GA_EL.NAV_PHOTOGRAPHY)} to="/photography">
+            <Link
+              onClick={() => handleLog(GA_EL.NAV_PHOTOGRAPHY)}
+              to="/photography"
+            >
               Photography
             </Link>
             <BlinkCursor active={path === '/photography'} />
@@ -118,7 +127,7 @@ function NavBar(props) {
             <BlinkCursor active={path === '/events'} />
           </Item>*/}
         </Nav>
-      </Wrap>
+      </Wrapper>
     </Transition>
   );
 }

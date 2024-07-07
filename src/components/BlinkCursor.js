@@ -2,7 +2,6 @@
 
 import styled, { keyframes } from 'styled-components';
 import { COLORS } from '../styles/constants';
-import media from '../styles/media';
 
 const blinkAnimation = keyframes`
   50% {
@@ -13,15 +12,11 @@ const blinkAnimation = keyframes`
 const BlinkCursor = styled.span`
   animation: ${blinkAnimation} 1s step-start infinite;
   background-color: ${COLORS.BLACK};
-  bottom: 10px;
-  display: ${props => (props.active ? 'inline-block' : 'none')};
+  bottom: 0;
+  display: ${(props) => (props.active ? 'inline-block' : 'none')};
   height: 1px;
   position: absolute;
   width: 10px;
-
-  ${media.md`
-    bottom: 5px;
-  `}
 `;
 
 export default BlinkCursor;

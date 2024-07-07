@@ -63,7 +63,7 @@ const Icon = styled.img`
 `;
 
 function Footer() {
-  const handleClick = value => {
+  const handleClick = (value) => {
     Analytics.logClickIcon(GA_CAT.FOOTER, value);
   };
 
@@ -71,19 +71,28 @@ function Footer() {
     <Wrap>
       <Section>
         <div>social</div>
-        <a onClick={() => handleClick('instagram')} href="https://www.instagram.com/enzoames/">
+        <a
+          onClick={() => handleClick('instagram')}
+          href="https://www.instagram.com/enzoames/"
+        >
           <Icon src={instagram} />
         </a>
-        <a onClick={() => handleClick('linkedin')} href="https://linkedin.com/in/enzoames/">
+        <a
+          onClick={() => handleClick('linkedin')}
+          href="https://linkedin.com/in/enzoames/"
+        >
           <Icon src={linkedin} />
         </a>
-        <a onClick={() => handleClick('github')} href="https://github.com/enzoames">
+        <a
+          onClick={() => handleClick('github')}
+          href="https://github.com/enzoames"
+        >
           <Icon src={github} />
         </a>
       </Section>
       <Section>
         <div>let&apos;s work together</div>
-        <p>eamespizarro@gmail.com</p>
+        <p>contact@enzoames.com</p>
         <span>© {new Date().getFullYear()} Enzo Ames</span>
       </Section>
     </Wrap>
