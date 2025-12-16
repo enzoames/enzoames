@@ -1,14 +1,12 @@
 // Copyright 2019 enzoames Inc. All Rights Reserved.
 
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useCallback } from 'react';
 import styled from 'styled-components';
 import media from '../styles/media';
 import BlinkCursor from '../components/BlinkCursor';
 import useOnScroll from '../hooks/useOnScroll';
 import { COLORS } from '../styles/constants';
 import albums from '../utils/albums';
-import { GA_URL, GA_EL } from '../utils/config';
-import Analytics from '../utils/Analytics';
 
 const Transition = styled.div`
   position: relative;
@@ -101,13 +99,7 @@ function Photography() {
   const [album, setAlbum] = useState('world');
   const show = useOnScroll(true);
 
-  useEffect(() => {
-    Analytics.logPageImpression(GA_URL.PHOTOGRAPHY);
-    Analytics.logAlbumClick(GA_EL.ALBUM_WORLD);
-  }, []);
-
-  const handleClick = useCallback((name, album) => {
-    Analytics.logAlbumClick(album);
+  const handleClick = useCallback((name) => {
     setAlbum(name);
   }, []);
 
@@ -149,18 +141,18 @@ function Photography() {
     <>
       <Transition>
         <AlbumList className={show ? 'down' : 'up'}>
-          <Album onClick={() => handleClick('world', GA_EL.ALBUM_WORLD)}>
+          <Album onClick={() => handleClick('world')}>
             World
             <BlinkCursor active={album === 'world'} />
           </Album>
-          <Album onClick={() => handleClick('nyc', GA_EL.ALBUM_NYC)}>
+          <Album onClick={() => handleClick('nyc')}>
             Nyc
             <BlinkCursor active={album === 'nyc'} />
           </Album>
-          <Album onClick={() => handleClick('people', GA_EL.ALBUM_PEOPLE)}>
+          {/* <Album onClick={() => handleClick('people')}>
             People
             <BlinkCursor active={album === 'people'} />
-          </Album>
+          </Album> */}
         </AlbumList>
       </Transition>
       <Gallery>{renderGallery()}</Gallery>

@@ -1,6 +1,6 @@
 // Copyright 2019 enzoames Inc. All Rights Reserved.
 
-import React, { useCallback } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { withRouter } from 'react-router';
@@ -8,8 +8,6 @@ import { COLORS } from '../styles/constants';
 import media from '../styles/media';
 import BlinkCursor from '../components/BlinkCursor';
 import useOnScroll from '../hooks/useOnScroll';
-import { GA_EL } from '../utils/config';
-import Analytics from '../utils/Analytics';
 
 const Transition = styled.div`
   background-color: ${COLORS.WHITE};
@@ -86,38 +84,23 @@ function NavBar(props) {
 
   const show = useOnScroll(true);
 
-  const handleLog = useCallback((label) => {
-    Analytics.logNavClick(label);
-  }, []);
-
   return (
     <Transition className={show ? 'active' : 'hidden'}>
       <Wrapper>
         <EnzoAmes>
-          <Link onClick={() => handleLog(GA_EL.NAV_HOME)} to="/">
-            enzo ames
-          </Link>
+          <Link to="/">enzo ames</Link>
         </EnzoAmes>
         <Nav>
           <Item>
-            <Link onClick={() => handleLog(GA_EL.NAV_HOME)} to="/">
-              Home
-            </Link>
+            <Link to="/">Home</Link>
             <BlinkCursor active={path === '/'} />
           </Item>
           <Item>
-            <Link
-              onClick={() => handleLog(GA_EL.NAV_PHOTOGRAPHY)}
-              to="/photography"
-            >
-              Photography
-            </Link>
+            <Link to="/photography">Photography</Link>
             <BlinkCursor active={path === '/photography'} />
           </Item>
           <Item>
-            <Link onClick={() => handleLog(GA_EL.NAV_RESUME)} to="/resume">
-              Resume
-            </Link>
+            <Link to="/resume">Resume</Link>
             <BlinkCursor active={path === '/resume'} />
           </Item>
           {/*<Item>

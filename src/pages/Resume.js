@@ -1,9 +1,7 @@
 // Copyright 2019 enzoames Inc. All Rights Reserved.
 
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
-import { GA_URL, GA_CAT, GA_EL } from '../utils/config';
-import Analytics from '../utils/Analytics';
 
 const ResumePage = styled.div`
   margin-top: 112px;
@@ -33,12 +31,8 @@ const Section = styled.div`
 
 function Resume() {
   const [readMore, setReadMore] = useState(false);
-  useEffect(() => {
-    Analytics.logPageImpression(GA_URL.RESUME);
-  }, []);
 
   const handleReadMore = () => {
-    Analytics.logClickReadMore(GA_CAT.RESUME, GA_EL.READ_MORE);
     setReadMore(true);
   };
 
@@ -47,23 +41,68 @@ function Resume() {
       <Section>
         <h3>Work Experience</h3>
         <p>
-          <i>
-            <strong>Software Engineer</strong>
-          </i>
-          , <u>Foursquare</u>, NYC <span>| Oct 2018 - Present</span>
+          <strong>Software Engineer & Founder</strong>,{' '}
+          <u>
+            <a
+              href="https://mr-profit.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              MR-PROFIT.COM
+            </a>
+          </u>
+          , NYC <span>| Jun 2025 - Present</span>
         </p>
         <ul>
           <li>
-            Developing and innovating consumer and client facing interfaces
-            across Foursquare's products.
+            Founded and led the development of MR-PROFIT.COM, a trading
+            analytics dashboard for stock day traders
           </li>
-          <li>Having a great time.</li>
+          <li>
+            The platform is designed to help traders track their performance,
+            analyze their trades, and improve their trading strategies.
+          </li>
+          <li>Developed using Next.js and fully serverless on AWS.</li>
         </ul>
         <p>
-          <i>
-            <strong>Software Developer</strong>
-          </i>
-          , <u>Club Sporta</u>, NYC <span>| Jan 2018 - Dec 2018</span>
+          <strong>Software Engineer</strong>, <u>Foursquare</u>, NYC{' '}
+          <span>| Oct 2018 - May 2024</span>
+        </p>
+        <ul>
+          <li>
+            During my time at Foursquare, I worked mainly on the team
+            responsible for the Developer Console, helping improve the tools and
+            experience that developers rely on every day. I also assisted other
+            teams in their vision of creating a cohesive lineup of Foursquare
+            products.
+          </li>
+          <li>
+            - Maintained and expanded the Foursquare Developer Console, focusing
+            on performance, usability, and new functionality.
+          </li>
+          <li>
+            - Led several projects end-to-end, breaking down work, coordinating
+            with other engineers, and making sure we stayed aligned and on
+            track.
+          </li>
+          <li>
+            - Contributed to our internal reusable frontend component library
+            (Cupcake), helping bring consistency and speed to the UI work across
+            multiple product teams.
+          </li>
+          <li>
+            - Led the initiative to adopt a Serverless Architecture for a
+            company-wide system designed to help Foursquare stay compliant with
+            local and international privacy regulations
+          </li>
+          <li>
+            - Mentored new engineers, helping them get up to speed and
+            supporting their growth on the team.
+          </li>
+        </ul>
+        <p>
+          <strong>Software Developer</strong>, <u>Club Sporta</u>, NYC{' '}
+          <span>| Jan 2018 - Dec 2018</span>
         </p>
         <ul>
           <li>
@@ -81,17 +120,15 @@ function Resume() {
         {!readMore && (
           <p onClick={handleReadMore}>
             <strong className="readMore">
-              click here to get to really know me...
+              click here to really get to know me...
             </strong>
           </p>
         )}
         {readMore && (
           <>
             <p>
-              <i>
-                <strong>Student Software Developer</strong>
-              </i>
-              , <u>CUNY Tech Prep</u>, NYC <span>| Sept 2017 - June 2018</span>
+              <strong>Student Software Developer</strong>, <u>CUNY Tech Prep</u>
+              , NYC <span>| Sept 2017 - June 2018</span>
             </p>
             <ul>
               <li>
@@ -106,10 +143,8 @@ function Resume() {
               </li>
             </ul>
             <p>
-              <i>
-                <strong>Software Developer Intern</strong>
-              </i>
-              , <u>Alpine Capital Advisors</u>, NYC{' '}
+              <strong>Software Developer Intern</strong>,{' '}
+              <u>Alpine Capital Advisors</u>, NYC{' '}
               <span>| Feb 2017 - Aug 2017</span>
             </p>
             <ul>
@@ -131,10 +166,8 @@ function Resume() {
               </li>
             </ul>
             <p>
-              <i>
-                <strong>Computer Science Tutor</strong>
-              </i>
-              , <u>SEEK PAL Tutoring Center</u>, NYC{' '}
+              <strong>Computer Science Tutor</strong>,{' '}
+              <u>SEEK PAL Tutoring Center</u>, NYC{' '}
               <span>| Sept 2016 - Jan 2017</span>
             </p>
             <ul>
@@ -145,10 +178,8 @@ function Resume() {
               </li>
             </ul>
             <p>
-              <i>
-                <strong>Sports Photographer</strong>
-              </i>
-              , <u>CCNY Athletics Department</u>, NYC{' '}
+              <strong>Sports Photographer</strong>,{' '}
+              <u>CCNY Athletics Department</u>, NYC{' '}
               <span>| Sept 2015 - May 2016</span>
             </p>
             <ul>
@@ -159,10 +190,8 @@ function Resume() {
               </li>
             </ul>
             <p>
-              <i>
-                <strong>Freelance Photographer</strong>
-              </i>
-              , <u>enzoames.com</u>, NYC <span>| Jan 2015 - Present</span>
+              <strong>Freelance Photographer</strong>, <u>enzoames.com</u>, NYC{' '}
+              <span>| Jan 2015 - Present</span>
             </p>
             <ul>
               <li>
@@ -173,11 +202,8 @@ function Resume() {
               </li>
             </ul>
             <p>
-              <i>
-                <strong>Bartender, Bar Back, Server, Food Runner</strong>
-              </i>
-              , <u>Pure Food and Wine</u>, NYC{' '}
-              <span>| Aug 2014 - June 2015</span>
+              <strong>Bartender, Bar Back, Server, Food Runner</strong>,{' '}
+              <u>Pure Food and Wine</u>, NYC <span>| Aug 2014 - June 2015</span>
             </p>
             <ul>
               <li>
@@ -194,10 +220,8 @@ function Resume() {
               </li>
             </ul>
             <p>
-              <i>
-                <strong>Construction Worker</strong>
-              </i>
-              , <u>Family's Construction and Woodshop Company</u>, NYC{' '}
+              <strong>Construction Worker</strong>,{' '}
+              <u>Family's Construction and Woodshop Company</u>, NYC{' '}
               <span>| May 2014 - June 2016</span>
             </p>
             <ul>
@@ -207,19 +231,15 @@ function Resume() {
               </li>
             </ul>
             <p>
-              <i>
-                <strong>Delivery Rep</strong>
-              </i>
-              , <u>Fresh Direct</u>, NYC <span>| March 2014 - May 2014</span>
+              <strong>Delivery Rep</strong>, <u>Fresh Direct</u>, NYC{' '}
+              <span>| March 2014 - May 2014</span>
             </p>
             <ul>
               <li>Ensured delivery orders reach their destination.</li>
             </ul>
             <p>
-              <i>
-                <strong>Soccer Coach</strong>
-              </i>
-              , <u>Brooklyn Patriots Soccer Club</u>, NYC{' '}
+              <strong>Soccer Coach</strong>,{' '}
+              <u>Brooklyn Patriots Soccer Club</u>, NYC{' '}
               <span>| Aug 2013 - Feb 2014</span>
             </p>
             <ul>
@@ -233,10 +253,8 @@ function Resume() {
               </li>
             </ul>
             <p>
-              <i>
-                <strong>Dog Handler</strong>
-              </i>
-              , <u>Biscuts & Bath</u>, NYC <span>| June 2013 - July 2013</span>
+              <strong>Dog Handler</strong>, <u>Biscuts & Bath</u>, NYC{' '}
+              <span>| June 2013 - July 2013</span>
             </p>
             <ul>
               <li>
@@ -245,10 +263,8 @@ function Resume() {
               </li>
             </ul>
             <p>
-              <i>
-                <strong>Health Educator</strong>
-              </i>
-              , <u>GWEC School-Based Health Center</u>, NYC{' '}
+              <strong>Health Educator</strong>,{' '}
+              <u>GWEC School-Based Health Center</u>, NYC{' '}
               <span>| Sept 2008 - June 2009</span>
             </p>
             <ul>
@@ -269,9 +285,10 @@ function Resume() {
       <Section>
         <h3>Qualifications</h3>
         <p>
-          <strong>Technical Skills:</strong> Javascript, Scala, React, Redux,
-          Styled Components, Node.js, HTML, CSS, AWS, Python, Gatsby, Webpack,
-          Django REST Framework.
+          <strong>Technical Skills:</strong> TypeScript, Next.js, OpenNext,
+          Javascript, Scala, React, Redux, Tailwind CSS, Styled Components,
+          Node.js, HTML, CSS, AWS, Python, Gatsby, Webpack, Django REST
+          Framework.
         </p>
         <p>
           <strong>Design Software Tools:</strong> Figma and Adobe Lightroom.
